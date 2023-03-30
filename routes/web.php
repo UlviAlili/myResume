@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FrontController;
 use Illuminate\Support\Facades\Route;
+use Rap2hpoutre\LaravelLogViewer\LogViewerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +21,11 @@ Route::get('/resume', [FrontController::class, 'resume'])->name('resume');
 Route::get('/portfolio', [FrontController::class, 'portfolio'])->name('portfolio');
 Route::get('/blog', [FrontController::class, 'blog'])->name('blog');
 Route::get('/contact', [FrontController::class, 'contact'])->name('contact');
+
+
+Route::prefix("admin")->middleware('auth')->group(function () {
+    Route::get('/', [AdminController::class, 'index'])->name('admin.index');
+
+    Route::get('logs', [LogViewerController::class, 'index']);
+});
+
