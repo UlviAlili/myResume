@@ -68,7 +68,7 @@
 
         @yield('content')
 
-        <footer>Live Resume @ <a href="https://www.bootstrapdash.com" target="_blank" rel="noopener noreferrer">BootstrapDash</a>. All Rights Reserved 2020</footer>
+        <footer><a href="https://www.github.com/UlviAlili" target="_blank" rel="noopener noreferrer">Ulvi Alili</a>.  All Rights Reserved 2023</footer>
     </main>
 </div>
 <script src="{{asset("assets/vendors/jquery/dist/jquery.min.js")}}"></script>
