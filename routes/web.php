@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\AdminController;
+use App\Http\Controllers\admin\AdminController;
+use App\Http\Controllers\admin\EducationController;
 use App\Http\Controllers\FrontController;
 use Illuminate\Support\Facades\Route;
 use Rap2hpoutre\LaravelLogViewer\LogViewerController;
@@ -25,6 +26,7 @@ Route::get('/contact', [FrontController::class, 'contact'])->name('contact');
 
 Route::prefix("admin")->middleware('auth')->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('admin.index');
+    Route::get('/education', [EducationController::class, 'index'])->name('admin.education');
 
     Route::get('logs', [LogViewerController::class, 'index']);
 });
