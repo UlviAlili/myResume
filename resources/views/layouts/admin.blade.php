@@ -90,7 +90,39 @@
                     <span class="menu-title">Dashboard</span>
                 </a>
             </li>
-            <li class="nav-item menu-items {{Route::is('admin.education') ? "active" : ""}}">
+            <li class="nav-item menu-items">
+                <a class="nav-link" href="#">
+                    <span class="menu-icon">
+                        <i class="mdi mdi-contacts"></i>
+                    </span>
+                    <span class="menu-title">Profile</span>
+                </a>
+            </li>
+            <li class="nav-item menu-items">
+                <a class="nav-link" href="#">
+                    <span class="menu-icon">
+                        <i class="mdi mdi-table-large"></i>
+                    </span>
+                    <span class="menu-title">Skills</span>
+                </a>
+            </li>
+            <li class="nav-item menu-items">
+                <a class="nav-link" href="#">
+                    <span class="menu-icon">
+                        <i class="mdi mdi-table-large"></i>
+                    </span>
+                    <span class="menu-title">Languages</span>
+                </a>
+            </li>
+            <li class="nav-item menu-items">
+                <a class="nav-link" href="#">
+                    <span class="menu-icon">
+                        <i class="mdi mdi-table-large"></i>
+                    </span>
+                    <span class="menu-title">Interests</span>
+                </a>
+            </li>
+            <li class="nav-item menu-items {{Route::is('admin.education') ? "active" : ""}} {{Route::is('admin.education.create') ? "active" : ""}}">
                 <a class="nav-link" href="{{route("admin.education")}}">
                     <span class="menu-icon">
                         <i class="mdi mdi-laptop"></i>
@@ -99,7 +131,7 @@
                 </a>
             </li>
             <li class="nav-item menu-items">
-                <a class="nav-link" href="../../pages/forms/basic_elements.html">
+                <a class="nav-link" href="#">
                     <span class="menu-icon">
                         <i class="mdi mdi-playlist-play"></i>
                     </span>
@@ -107,15 +139,7 @@
                 </a>
             </li>
             <li class="nav-item menu-items">
-                <a class="nav-link" href="../../pages/tables/basic-table.html">
-                    <span class="menu-icon">
-                        <i class="mdi mdi-table-large"></i>
-                    </span>
-                    <span class="menu-title">Skills</span>
-                </a>
-            </li>
-            <li class="nav-item menu-items">
-                <a class="nav-link" href="../../pages/charts/chartjs.html">
+                <a class="nav-link" href="#">
                     <span class="menu-icon">
                         <i class="mdi mdi-chart-bar"></i>
                     </span>
@@ -123,37 +147,37 @@
                 </a>
             </li>
             <li class="nav-item menu-items">
-                <a class="nav-link" href="../../pages/icons/mdi.html">
+                <a class="nav-link" href="#">
                     <span class="menu-icon">
                         <i class="mdi mdi-contacts"></i>
                     </span>
                     <span class="menu-title">Certificates</span>
                 </a>
             </li>
+            {{--            <li class="nav-item menu-items">--}}
+            {{--                <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">--}}
+            {{--                    <span class="menu-icon">--}}
+            {{--                        <i class="mdi mdi-security"></i>--}}
+            {{--                    </span>--}}
+            {{--                    <span class="menu-title">User Pages</span>--}}
+            {{--                    <i class="menu-arrow"></i>--}}
+            {{--                </a>--}}
+            {{--                <div class="collapse" id="auth">--}}
+            {{--                    <ul class="nav flex-column sub-menu">--}}
+            {{--                        <li class="nav-item"><a class="nav-link" href="../../pages/samples/blank-page.html"> Blank Page </a></li>--}}
+            {{--                        <li class="nav-item"><a class="nav-link" href="../../pages/samples/error-404.html"> 404 </a></li>--}}
+            {{--                        <li class="nav-item"><a class="nav-link" href="../../pages/samples/error-500.html"> 500 </a></li>--}}
+            {{--                        <li class="nav-item"><a class="nav-link" href="../../pages/samples/login.html"> Login </a></li>--}}
+            {{--                        <li class="nav-item"><a class="nav-link" href="../../pages/samples/register.html"> Register </a></li>--}}
+            {{--                    </ul>--}}
+            {{--                </div>--}}
+            {{--            </li>--}}
             <li class="nav-item menu-items">
-                <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
-                    <span class="menu-icon">
-                        <i class="mdi mdi-security"></i>
-                    </span>
-                    <span class="menu-title">User Pages</span>
-                    <i class="menu-arrow"></i>
-                </a>
-                <div class="collapse" id="auth">
-                    <ul class="nav flex-column sub-menu">
-                        <li class="nav-item"><a class="nav-link" href="../../pages/samples/blank-page.html"> Blank Page </a></li>
-                        <li class="nav-item"><a class="nav-link" href="../../pages/samples/error-404.html"> 404 </a></li>
-                        <li class="nav-item"><a class="nav-link" href="../../pages/samples/error-500.html"> 500 </a></li>
-                        <li class="nav-item"><a class="nav-link" href="../../pages/samples/login.html"> Login </a></li>
-                        <li class="nav-item"><a class="nav-link" href="../../pages/samples/register.html"> Register </a></li>
-                    </ul>
-                </div>
-            </li>
-            <li class="nav-item menu-items">
-                <a class="nav-link" href="http://www.bootstrapdash.com/demo/corona-free/jquery/documentation/documentation.html">
+                <a class="nav-link" href="#">
                     <span class="menu-icon">
                         <i class="mdi mdi-file-document-box"></i>
                     </span>
-                    <span class="menu-title">Documentation</span>
+                    <span class="menu-title">Portfolio</span>
                 </a>
             </li>
         </ul>
@@ -192,16 +216,18 @@
                                 </div>
                             </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item preview-item">
-                                <div class="preview-thumbnail">
-                                    <div class="preview-icon bg-dark rounded-circle">
-                                        <i class="mdi mdi-logout text-danger"></i>
+                            <button type="button" id="btnLogout">
+                                <a class="dropdown-item preview-item">
+                                    <div class="preview-thumbnail">
+                                        <div class="preview-icon bg-dark rounded-circle">
+                                            <i class="mdi mdi-logout text-danger"></i>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="preview-item-content">
-                                    <p class="preview-subject mb-1">Log out</p>
-                                </div>
-                            </a>
+                                    <div class="preview-item-content">
+                                        <p class="preview-subject mb-1">Log out</p>
+                                    </div>
+                                </a>
+                            </button>
                         </div>
                     </li>
                 </ul>
@@ -240,6 +266,9 @@
 <script src="{{asset("assets/js/misc.js")}}"></script>
 <script src="{{asset("assets/js/settings.js")}}"></script>
 <script src="{{asset("assets/js/todolist.js")}}"></script>
+<script>
+
+</script>
 @yield("js")
 <!-- endinject -->
 <!-- Custom js for this page -->

@@ -27,6 +27,7 @@ Route::get('/contact', [FrontController::class, 'contact'])->name('contact');
 Route::prefix("admin")->middleware('auth')->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('admin.index');
     Route::get('/education', [EducationController::class, 'index'])->name('admin.education');
+    Route::get('/education/create', [EducationController::class, 'create'])->name('admin.education.create');
 
     Route::get('logs', [LogViewerController::class, 'index']);
 });

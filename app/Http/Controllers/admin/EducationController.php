@@ -8,7 +8,10 @@ use Illuminate\Http\Request;
 class EducationController extends Controller
 {
     public function index(){
-        return view("admin.education");
+        return view("admin.education.index");
     }
 
+    public function create(){
+        return view('admin.education.create');
+    }
 }
