@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\EducationController;
+use App\Http\Controllers\admin\ProfileController;
 use App\Http\Controllers\FrontController;
 use Illuminate\Support\Facades\Route;
 use Rap2hpoutre\LaravelLogViewer\LogViewerController;
@@ -28,6 +29,8 @@ Route::prefix("admin")->middleware('auth')->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('admin.index');
     Route::get('/education', [EducationController::class, 'index'])->name('admin.education');
     Route::get('/education/create', [EducationController::class, 'create'])->name('admin.education.create');
+
+    Route::get("/profile",[ProfileController::class, 'index'])->name('admin.profile');
 
     Route::get('logs', [LogViewerController::class, 'index']);
 });

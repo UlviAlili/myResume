@@ -34,7 +34,7 @@
                 <p>MAIL : Ulvi96alili@gmail.com</p>
                 <p>Location : Sumqayit, Azerbaijan</p>
                 <button class="btn btn-download-cv btn-primary rounded-pill">
-                    <img src="assets/images/download.svg" alt="download" class="btn-img">DOWNLOAD CV
+                    <img src="{{asset("assets/images/download.svg")}}" alt="download" class="btn-img">DOWNLOAD CV
                 </button>
             </div>
         </div>
