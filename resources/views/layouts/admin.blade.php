@@ -90,8 +90,8 @@
                     <span class="menu-title">Dashboard</span>
                 </a>
             </li>
-            <li class="nav-item menu-items">
-                <a class="nav-link" href="#">
+            <li class="nav-item menu-items {{Route::is('admin.profile') ? "active" : ""}}">
+                <a class="nav-link" href="{{route('admin.profile')}}">
                     <span class="menu-icon">
                         <i class="mdi mdi-contacts"></i>
                     </span>
@@ -216,8 +216,9 @@
                                 </div>
                             </a>
                             <div class="dropdown-divider"></div>
-                            <button type="button" id="btnLogout">
-                                <a class="dropdown-item preview-item">
+                            <form action="{{route('logout')}}" method="POST">
+                                @csrf
+                                <button type="submit" class="dropdown-item preview-item">
                                     <div class="preview-thumbnail">
                                         <div class="preview-icon bg-dark rounded-circle">
                                             <i class="mdi mdi-logout text-danger"></i>
@@ -226,8 +227,9 @@
                                     <div class="preview-item-content">
                                         <p class="preview-subject mb-1">Log out</p>
                                     </div>
-                                </a>
-                            </button>
+                                </button>
+                            </form>
+
                         </div>
                     </li>
                 </ul>
@@ -266,9 +268,6 @@
 <script src="{{asset("assets/js/misc.js")}}"></script>
 <script src="{{asset("assets/js/settings.js")}}"></script>
 <script src="{{asset("assets/js/todolist.js")}}"></script>
-<script>
-
-</script>
 @yield("js")
 <!-- endinject -->
 <!-- Custom js for this page -->

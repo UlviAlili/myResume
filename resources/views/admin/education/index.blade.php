@@ -21,7 +21,7 @@
             <div class="card">
                 <div class="card-header">
                     <h4 class="m-0 font-weight-bold float-right">
-                            <a href="{{route('admin.education.create')}}" class="btn btn-primary btn-block btn-lg">Add Education</a>
+                        <a href="{{route('admin.education.create')}}" class="btn btn-primary btn-block btn-lg">Add Education</a>
                     </h4>
                 </div>
                 <div class="card-body">
@@ -36,6 +36,14 @@
                             </tr>
                             </thead>
                             <tbody>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>
+                                <div class="progress">
+                                    <div class="progress-bar bg-success" role="progressbar" style="width: 85%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+                            </td>
                             </tbody>
                         </table>
                     </div>
