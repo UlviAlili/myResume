@@ -5,60 +5,100 @@
 
 @endsection
 @section('content')
- <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <small class="text-danger mt-2 float-left">* &nbsp;indicates a required field.</small>
-            <h6 class="m-0 font-weight-bold float-right text-primary">
-                <a href="" class="btn btn-primary btn-sm">All Projects</a></h6>
-        </div>
-        <div class="card-body">
+    <div class="page-header">
+        <h3 class="page-title">Create New Education</h3>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{route('admin.index')}}">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="{{route('admin.education.index')}}">Education</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Create New Education</li>
+            </ol>
+        </nav>
+    </div>
 
-            <form method="post" id="FrmAddProject" enctype="multipart/form-data">
-                @csrf
-
-                <div class="row">
-                    <div class="col-md-12">
+    <div class="row">
+        <div class="col-md-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <form class="forms-sample" method="Post" action="{{route('admin.education.store')}}" id="createEducationForm">
+                        @csrf
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                         <div class="form-group">
-                            <label>Project Name<span style="color: red">*</span></label>
-                            <input type="text" name="title" class="form-control">
+                            <label for="university">University</label>
+                            <input type="text" class="form-control" name="university" id="university" placeholder="University">
                         </div>
-                    </div>
-
-{{--                    <div class="col-md-6">--}}
-{{--                        <div class="form-group">--}}
-{{--                            <label>Project Status</label>--}}
-{{--                            <select name="status" class="form-control">--}}
-{{--                                <option value="1">Not Started</option>--}}
-{{--                                <option value="2">In Progress</option>--}}
-{{--                                <option value="3">Done</option>--}}
-{{--                            </select>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
+                        <div class="form-group">
+                            <label for="faculty">Faculty</label>
+                            <input type="text" class="form-control" id="faculty" name="faculty" placeholder="Faculty">
+                        </div>
+                        <div class="form-group">
+                            <label for="education_type">Education Type</label>
+                            <select id="education_type" name="education_type" class="form-control">
+                                <option class="form-control" value="0">Bachelor</option>
+                                <option class="form-control" value="1">Master</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="education_date">Education Date</label>
+                            <input type="text" class="form-control" id="education_date" name="education_date" placeholder="Example: 2014-2018">
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <textarea class="form-control" id="description" name="description" placeholder="Description"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="order">Order</label>
+                            <input type="text" class="form-control" id="order" name="order" placeholder="Order">
+                        </div>
+                        <div class="form-group">
+                            <div class="form-check form-check-primary">
+                                <label class="form-check-label" for="status">
+                                    <input type="checkbox" class="form-check-input" id="status" name="status"> Status </label>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-primary col-12" id="createButton">Submit</button>
+                    </form>
                 </div>
-
-                <div class="form-group">
-                    <label>Project Team Members</label>
-                    <select class="form-control selectpicker" multiple data-live-search="true" name="member[]">
-                        <option value="0" disabled>Select Team Member</option>
-{{--                        @foreach($users as $user)--}}
-{{--                            <option value="{{$user->id}}">{{$user->name}}</option>--}}
-{{--                        @endforeach--}}
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label>Project Description</label>
-                    <textarea id="editor" name="contents" class="form-control" rows="4"></textarea>
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-block" id="mySubmit">Create Project &nbsp;<span
-                            class="myLoad"></span></button>
-                </div>
-            </form>
+            </div>
         </div>
     </div>
+
 @endsection
 
 @section('js')
+    <script>
+        let createButton = $('#createButton');
+        createButton.click(function () {
+            if ($('#university').val().trim() === "") {
+                Swal.fire({
+                    icon: 'info',
+                    title: 'Warning!',
+                    text: "University can't be empty",
+                })
+            } else if ($('#faculty').val().trim() === "") {
+                Swal.fire({
+                    icon: 'info',
+                    title: 'Warning!',
+                    text: "Faculty can't be empty",
+                })
+            } else if ($('#education_date').val().trim() === "") {
+                Swal.fire({
+                    icon: 'info',
+                    title: 'Warning!',
+                    text: "Education Date can't be empty",
+                })
+            } else {
+                $('#createEducationForm').submit();
+            }
+        });
 
+    </script>
 @endsection
