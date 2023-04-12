@@ -25,12 +25,12 @@ Route::get('/blog', [FrontController::class, 'blog'])->name('blog');
 Route::get('/contact', [FrontController::class, 'contact'])->name('contact');
 
 
-Route::prefix("admin")->middleware('auth')->group(function () {
-    Route::get('/', [AdminController::class, 'index'])->name('admin.index');
-    Route::get('/education', [EducationController::class, 'index'])->name('admin.education');
-    Route::get('/education/create', [EducationController::class, 'create'])->name('admin.education.create');
+Route::prefix("admin")->name('admin.')->middleware('auth')->group(function () {
+    Route::get('/', [AdminController::class, 'index'])->name('index');
 
-    Route::get("/profile",[ProfileController::class, 'index'])->name('admin.profile');
+    Route::resource('education',EducationController::class);
+
+    Route::get("/profile",[ProfileController::class, 'index'])->name('profile');
 
     Route::get('logs', [LogViewerController::class, 'index']);
 });

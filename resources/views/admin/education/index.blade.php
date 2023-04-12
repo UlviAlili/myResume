@@ -29,19 +29,29 @@
                         <table class="table">
                             <thead>
                             <tr>
-                                <th>Education Date</th>
-                                <th>Faculty</th>
+                                <th>#</th>
                                 <th>University</th>
+                                <th>Faculty</th>
+                                <th>Education Type</th>
+                                <th>Education Date</th>
                                 <th>Description</th>
+                                <th>Status</th>
+                                <th>Orders</th>
+                                <th>Actions</th>
                             </tr>
                             </thead>
                             <tbody>
                             <td>1</td>
-                            <td>1</td>
-                            <td>1</td>
+                            <td>SDU</td>
+                            <td>Computer Engineer</td>
+                            <td>Bachelor</td>
+                            <td>2018-2022</td>
+                            <td>Computer Engineering</td>
+                            <td>Active</td>
+                            <td>2</td>
                             <td>
                                 <div class="progress">
-                                    <div class="progress-bar bg-success" role="progressbar" style="width: 85%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar bg-success" role="progressbar" style="width: 85%"></div>
                                 </div>
                             </td>
                             </tbody>

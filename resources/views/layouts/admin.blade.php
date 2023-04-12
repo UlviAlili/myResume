@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="{{asset("assets/css/style.css")}}">
     <!-- End layout styles -->
     <link rel="shortcut icon" href="{{asset("assets/images/favicon.ico")}}" />
+    <link rel="stylesheet" href="{{asset('assets/sweet-alert/sweetalert2.min.css')}}">
     @yield("css")
 </head>
 <body>
@@ -122,8 +123,8 @@
                     <span class="menu-title">Interests</span>
                 </a>
             </li>
-            <li class="nav-item menu-items {{Route::is('admin.education') ? "active" : ""}} {{Route::is('admin.education.create') ? "active" : ""}}">
-                <a class="nav-link" href="{{route("admin.education")}}">
+            <li class="nav-item menu-items {{Route::is('admin.education.index') ? "active" : ""}} {{Route::is('admin.education.create') ? "active" : ""}}">
+                <a class="nav-link" href="{{route("admin.education.index")}}">
                     <span class="menu-icon">
                         <i class="mdi mdi-laptop"></i>
                     </span>
@@ -268,6 +269,7 @@
 <script src="{{asset("assets/js/misc.js")}}"></script>
 <script src="{{asset("assets/js/settings.js")}}"></script>
 <script src="{{asset("assets/js/todolist.js")}}"></script>
+<script src="{{asset("assets/sweet-alert/sweetalert2.all.min.js")}}"></script>
 @yield("js")
 <!-- endinject -->
 <!-- Custom js for this page -->
