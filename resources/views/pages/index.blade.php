@@ -21,61 +21,35 @@
                 <h6 class="section-subtitle">RESUME</h6>
                 <h2 class="section-title">EDUCATION</h2>
                 <ul class="time-line">
-                    <li class="time-line-item">
-                        <span class="badge badge-primary">1998 - 2005</span>
-                        <h6 class="time-line-item-title">Master In Computer Science</h6>
-                        <p class="time-line-item-subtitle">MASTER, UNIVERSITY</p>
-                        <p class="time-line-item-content">Mauris magna sapien, pharetra consectetur fringilla
-                                                          vitae, interdum sed tortor.</p>
-                    </li>
-                    <li class="time-line-item">
-                        <span class="badge badge-primary">1995 - 1998</span>
-                        <h6 class="time-line-item-title">Studied at Harvard University</h6>
-                        <p class="time-line-item-subtitle">UNIVERSITY</p>
-                        <p class="time-line-item-content">Mauris magna sapien, pharetra consectetur fringilla
-                                                          vitae, interdum sed tortor.
-                        </p>
-                    </li>
-                    <li class="time-line-item">
-                        <span class="badge badge-primary">1993 - 1995</span>
-                        <h6 class="time-line-item-title">Studied at Oxford University</h6>
-                        <p class="time-line-item-subtitle">UNIVERSITY</p>
-                        <p class="time-line-item-content">Mauris magna sapien, pharetra consectetur fringilla
-                                                          vitae, interdum sed tortor.
-                        </p>
-                    </li>
+                    @foreach($educationList as $education)
+                        <li class="time-line-item">
+                            <span class="badge badge-primary">{{$education->education_date}}</span>
+                            <h6 class="time-line-item-title">{{$education->faculty}}</h6>
+                            <p class="time-line-item-subtitle">@if($education->education_type === 0)
+                                    Bachelor
+                                @elseif($education->education_type === 1)
+                                    Master
+                                @else
+                                    High School
+                                @endif, {{$education->university}}</p>
+                            <p class="time-line-item-content">{{$education->description}}</p>
+                        </li>
+                    @endforeach
+
                 </ul>
             </div>
             <div class="col-lg-6">
                 <h6 class="section-subtitle">RESUME</h6>
                 <h2 class="section-title">Experience</h2>
                 <ul class="time-line">
-                    <li class="time-line-item">
-                        <span class="badge badge-primary">2010 - 2014</span>
-                        <h6 class="time-line-item-title">UI/UX Designer</h6>
-                        <p class="time-line-item-subtitle">Web Agency</p>
-                        <p class="time-line-item-content">Mauris magna sapien, pharetra consectetur fringilla
-                                                          vitae, interdum sed
-                                                          tortor.</p>
-                    </li>
-                    <li class="time-line-item">
-                        <span class="badge badge-primary">2008 - 2010</span>
-                        <h6 class="time-line-item-title">Web Designer</h6>
-                        <p class="time-line-item-subtitle">Apple Inc.</p>
-                        <p class="time-line-item-content">Mauris magna sapien, pharetra consectetur fringilla
-                                                          vitae, interdum sed
-                                                          tortor.
-                        </p>
-                    </li>
-                    <li class="time-line-item">
-                        <span class="badge badge-primary">2006 - 2008</span>
-                        <h6 class="time-line-item-title">Graphic Designer</h6>
-                        <p class="time-line-item-subtitle">Apple Inc.</p>
-                        <p class="time-line-item-content">Mauris magna sapien, pharetra consectetur fringilla
-                                                          vitae, interdum sed
-                                                          tortor.
-                        </p>
-                    </li>
+                    @foreach($experienceList as $experience)
+                        <li class="time-line-item">
+                            <span class="badge badge-primary">{{$experience->experience_date}}</span>
+                            <h6 class="time-line-item-title">{{$experience->position}}</h6>
+                            <p class="time-line-item-subtitle">{{$experience->company}}</p>
+                            <p class="time-line-item-content">{{$experience->description}}</p>
+                        </li>
+                    @endforeach
                 </ul>
             </div>
         </div>

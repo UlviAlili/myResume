@@ -53,6 +53,7 @@
                             <select id="education_type" name="education_type" class="form-control">
                                 <option class="form-control" value="0" @if($education?->education_type === 0) selected @endif>Bachelor</option>
                                 <option class="form-control" value="1" @if($education?->education_type === 1) selected @endif>Master</option>
+                                <option class="form-control" value="2" @if($education?->education_type === 2) selected @endif>High School</option>
                             </select>
                         </div>
                         <div class="form-group">

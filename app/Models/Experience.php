@@ -9,6 +9,11 @@ class Experience extends Model
 {
     use HasFactory;
 
-    protected $table="experience";
+    protected $table   = "experience";
     protected $guarded = [];
+
+    public function scopeStatus($query)
+    {
+        return $query->where('status', 1);
+    }
 }

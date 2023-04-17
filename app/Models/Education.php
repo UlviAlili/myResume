@@ -8,7 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Education extends Model
 {
     use HasFactory;
-    protected $table = 'education';
+
+    protected $table   = 'education';
     protected $guarded = [];
+
+    public function scopeStatus($query)
+    {
+        return $query->where('status', 1);
+    }
 
 }

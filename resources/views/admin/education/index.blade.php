@@ -36,7 +36,7 @@
                                 <th>Education Date</th>
                                 <th>Description</th>
                                 <th>Status</th>
-                                <th>Orders</th>
+                                <th>Order</th>
                                 <th>Created at</th>
                                 <th>Actions</th>
                             </tr>
