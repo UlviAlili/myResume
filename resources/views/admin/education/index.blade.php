@@ -37,23 +37,40 @@
                                 <th>Description</th>
                                 <th>Status</th>
                                 <th>Orders</th>
+                                <th>Created at</th>
                                 <th>Actions</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <td>1</td>
-                            <td>SDU</td>
-                            <td>Computer Engineer</td>
-                            <td>Bachelor</td>
-                            <td>2018-2022</td>
-                            <td>Computer Engineering</td>
-                            <td>Active</td>
-                            <td>2</td>
-                            <td>
-                                <div class="progress">
-                                    <div class="progress-bar bg-success" role="progressbar" style="width: 85%"></div>
-                                </div>
-                            </td>
+                            @foreach($educations as $education)
+                                <tr id="{{$education->id}}">
+                                    <td>{{$education->id}}</td>
+                                    <td>{{$education->university}}</td>
+                                    <td>{{$education->faculty}}</td>
+                                    <td>
+                                        @if($education->education_type === 0)
+                                            Bachelor
+                                        @else
+                                            Master
+                                        @endif
+                                    </td>
+                                    <td>{{$education->education_date}}</td>
+                                    <td>{{$education->description}}</td>
+                                    <td>
+                                        @if($education->status)
+                                            <a data-id="{{$education->id}}" href="javascript:void(0)" class="btn btn-success changeStatus">Active</a>
+                                        @else
+                                            <a data-id="{{$education->id}}" href="javascript:void(0)" class="btn btn-danger changeStatus">Passive</a>
+                                        @endif
+                                    </td>
+                                    <td>{{$education->order}}</td>
+                                    <td>{{\Carbon\Carbon::parse($education->created_at)->format('d-m-Y')}}</td>
+                                    <td>
+                                        <a href="{{route('admin.education.create',['educationId'=>$education->id])}}" class="btn btn-warning editEducation"><i class="fa fa-pen"></i></a>
+                                        <a data-id="{{$education->id}}" href="javascript:void(0)" class="btn btn-danger deleteEducation"><i class="fa fa-trash"></i></a>
+                                    </td>
+                                </tr>
+                            @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -65,5 +82,82 @@
 @endsection
 
 @section("js")
+    <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr("content")
+            }
+        });
 
+        $('.changeStatus').click(function () {
+            let educationId = $(this).attr('data-id');
+            let self = $(this);
+            $.ajax({
+                url: "{{ route('admin.education.status') }}",
+                type: "POST",
+                async: false,
+                data: {
+                    educationId: educationId
+                },
+                success: function (response) {
+                    Swal.fire({
+                        icon: "success",
+                        title: "Successful",
+                        text: "Status change"
+                    });
+                    if (response.status === 1) {
+                        self[0].innerHTML = 'Active';
+                        self.removeClass('btn-danger');
+                        self.addClass('btn-success');
+                    } else if (response.status === 0) {
+                        self[0].innerHTML = "Passive";
+                        self.removeClass('btn-success');
+                        self.addClass('btn-danger');
+                    }
+                },
+                error: function () {
+
+                }
+            });
+        });
+
+        $('.deleteEducation').click(function () {
+            let educationId = $(this).attr('data-id');
+
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url: "{{ route('admin.education.delete') }}",
+                        type: "POST",
+                        async: false,
+                        data: {
+                            educationId: educationId
+                        },
+                        success: function (response) {
+                            Swal.fire({
+                                icon: "success",
+                                title: "Successful",
+                                text: "Education deleted"
+                            });
+
+                            $("tr#" + educationId).remove();
+                        },
+                        error: function () {
+
+                        }
+                    });
+                }
+            })
+
+
+        });
+    </script>
 @endsection

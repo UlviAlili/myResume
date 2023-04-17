@@ -4,10 +4,12 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield("title")</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="{{asset("assets/vendors/mdi/css/materialdesignicons.min.css")}}">
     <link rel="stylesheet" href="{{asset("assets/vendors/css/vendor.bundle.base.css")}}">
+    <link rel="stylesheet" href="{{asset("assets/vendors/@fortawesome/fontawesome-free/css/all.css")}}">
     <!-- endinject -->
     <!-- Plugin css for this page -->
     <!-- End Plugin css for this page -->
@@ -40,7 +42,7 @@
                             <img class="img-xs rounded-circle " src="{{asset("assets/images/faces/Ulvi.jpg")}}" alt="">
                         </div>
                         <div class="profile-name">
-                            <h5 class="mb-0 font-weight-normal">Ulvi Alili</h5>
+                            <h5 class="mb-0 font-weight-normal">{{auth()->user()->name}}</h5>
                         </div>
                     </div>
                     <a href="#" id="profile-dropdown" data-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></a>
@@ -131,8 +133,8 @@
                     <span class="menu-title">Education</span>
                 </a>
             </li>
-            <li class="nav-item menu-items">
-                <a class="nav-link" href="#">
+            <li class="nav-item menu-items {{Route::is('admin.education.index') ? "active" : ""}} {{Route::is('admin.education.create') ? "active" : ""}}">
+                <a class="nav-link" href="{{route("admin.education.index")}}">
                     <span class="menu-icon">
                         <i class="mdi mdi-playlist-play"></i>
                     </span>
@@ -155,24 +157,6 @@
                     <span class="menu-title">Certificates</span>
                 </a>
             </li>
-            {{--            <li class="nav-item menu-items">--}}
-            {{--                <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">--}}
-            {{--                    <span class="menu-icon">--}}
-            {{--                        <i class="mdi mdi-security"></i>--}}
-            {{--                    </span>--}}
-            {{--                    <span class="menu-title">User Pages</span>--}}
-            {{--                    <i class="menu-arrow"></i>--}}
-            {{--                </a>--}}
-            {{--                <div class="collapse" id="auth">--}}
-            {{--                    <ul class="nav flex-column sub-menu">--}}
-            {{--                        <li class="nav-item"><a class="nav-link" href="../../pages/samples/blank-page.html"> Blank Page </a></li>--}}
-            {{--                        <li class="nav-item"><a class="nav-link" href="../../pages/samples/error-404.html"> 404 </a></li>--}}
-            {{--                        <li class="nav-item"><a class="nav-link" href="../../pages/samples/error-500.html"> 500 </a></li>--}}
-            {{--                        <li class="nav-item"><a class="nav-link" href="../../pages/samples/login.html"> Login </a></li>--}}
-            {{--                        <li class="nav-item"><a class="nav-link" href="../../pages/samples/register.html"> Register </a></li>--}}
-            {{--                    </ul>--}}
-            {{--                </div>--}}
-            {{--            </li>--}}
             <li class="nav-item menu-items">
                 <a class="nav-link" href="#">
                     <span class="menu-icon">
@@ -199,7 +183,7 @@
                         <a class="nav-link" id="profileDropdown" href="#" data-toggle="dropdown">
                             <div class="navbar-profile">
                                 <img class="img-xs rounded-circle" src="{{asset("assets/images/faces/Ulvi.jpg")}}" alt="">
-                                <p class="mb-0 d-none d-sm-block navbar-profile-name">Ulvi Alili</p>
+                                <p class="mb-0 d-none d-sm-block navbar-profile-name">{{auth()->user()->name}}</p>
                                 <i class="mdi mdi-menu-down d-none d-sm-block"></i>
                             </div>
                         </a>
@@ -270,6 +254,7 @@
 <script src="{{asset("assets/js/settings.js")}}"></script>
 <script src="{{asset("assets/js/todolist.js")}}"></script>
 <script src="{{asset("assets/sweet-alert/sweetalert2.all.min.js")}}"></script>
+@include('sweetalert::alert')
 @yield("js")
 <!-- endinject -->
 <!-- Custom js for this page -->

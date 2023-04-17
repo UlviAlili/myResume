@@ -1,17 +1,21 @@
 @extends('layouts.admin')
-@section('title','Create New Education')
-
+@php
+    $educationtext = $education ? 'Edit Education' : "Create New Education";
+@endphp
+@section('title')
+    {{$educationtext}}
+@endsection
 @section('css')
 
 @endsection
 @section('content')
     <div class="page-header">
-        <h3 class="page-title">Create New Education</h3>
+        <h3 class="page-title">{{$educationtext}}</h3>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{route('admin.index')}}">Dashboard</a></li>
                 <li class="breadcrumb-item"><a href="{{route('admin.education.index')}}">Education</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Create New Education</li>
+                <li class="breadcrumb-item active" aria-current="page">{{$educationtext}}</li>
             </ol>
         </nav>
     </div>
@@ -31,37 +35,44 @@
                                 </ul>
                             </div>
                         @endif
+                        @if($education)
+                            <input type="hidden" name="educationId" value="{{$education->id}}">
+                        @endif
                         <div class="form-group">
                             <label for="university">University</label>
-                            <input type="text" class="form-control" name="university" id="university" placeholder="University">
+                            <input type="text" class="form-control" name="university" id="university"
+                                   placeholder="University" value="{{$education ? $education->university : ''}}">
                         </div>
                         <div class="form-group">
                             <label for="faculty">Faculty</label>
-                            <input type="text" class="form-control" id="faculty" name="faculty" placeholder="Faculty">
+                            <input type="text" class="form-control" id="faculty" name="faculty"
+                                   placeholder="Faculty" value="{{$education ? $education->faculty : ''}}">
                         </div>
-                        <div class="form-group">
+                        <div class=" form-group">
                             <label for="education_type">Education Type</label>
                             <select id="education_type" name="education_type" class="form-control">
-                                <option class="form-control" value="0">Bachelor</option>
-                                <option class="form-control" value="1">Master</option>
+                                <option class="form-control" value="0" @if($education?->education_type === 0) selected @endif>Bachelor</option>
+                                <option class="form-control" value="1" @if($education?->education_type === 1) selected @endif>Master</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="education_date">Education Date</label>
-                            <input type="text" class="form-control" id="education_date" name="education_date" placeholder="Example: 2014-2018">
+                            <input type="text" class="form-control" id="education_date" name="education_date"
+                                   placeholder="Example: 2014-2018" value="{{$education ? $education->education_date : ''}}">
                         </div>
-                        <div class="form-group">
+                        <div class=" form-group">
                             <label for="description">Description</label>
-                            <textarea class="form-control" id="description" name="description" placeholder="Description"></textarea>
+                            <textarea class="form-control" id="description" name="description" placeholder="Description">{{$education ? $education->description : ''}}</textarea>
                         </div>
                         <div class="form-group">
                             <label for="order">Order</label>
-                            <input type="text" class="form-control" id="order" name="order" placeholder="Order">
+                            <input type="text" class="form-control" id="order" name="order"
+                                   placeholder="Order" value="{{$education ? $education->order : ''}}">
                         </div>
                         <div class="form-group">
                             <div class="form-check form-check-primary">
                                 <label class="form-check-label" for="status">
-                                    <input type="checkbox" class="form-check-input" id="status" name="status"> Status </label>
+                                    <input type="checkbox" class="form-check-input" id="status" name="status" @if($education?->status) checked @endif> Status </label>
                             </div>
                         </div>
                         <button type="button" class="btn btn-primary col-12" id="createButton">Submit</button>

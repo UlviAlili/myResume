@@ -28,9 +28,12 @@ Route::get('/contact', [FrontController::class, 'contact'])->name('contact');
 Route::prefix("admin")->name('admin.')->middleware('auth')->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('index');
 
-    Route::resource('education',EducationController::class);
+    Route::resource('education', EducationController::class);
+    Route::post('/education-status', [EducationController::class, 'changeStatus'])->name('education.status');
+    Route::post('/education-delete', [EducationController::class, 'delete'])->name('education.delete');
+    Route::get("/profile", [ProfileController::class, 'index'])->name('profile');
 
-    Route::get("/profile",[ProfileController::class, 'index'])->name('profile');
+    Route::get('experience',);
 
     Route::get('logs', [LogViewerController::class, 'index']);
 });

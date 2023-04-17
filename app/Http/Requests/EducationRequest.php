@@ -22,9 +22,13 @@ class EducationRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "university" => "required|max:255",
-            "faculty" => "required|max:255",
-            "education_date" => "required"
+            "university"     => "required|max:255",
+            "faculty"        => "required|max:255",
+            "education_date" => "required",
+            "education_type" => "max:255",
+            "description"    => "max:1000",
+            "order"          => "max:1000",
+            "status"         => "max:255",
         ];
     }
 }
