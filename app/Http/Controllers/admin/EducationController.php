@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\EducationRequest;
 use App\Models\Education;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
@@ -20,7 +21,7 @@ class EducationController extends Controller
         return view('admin.education.index', compact('educations'));
     }
 
-    public function changeStatus(Request $request)
+    public function changeStatus(Request $request): JsonResponse
     {
         $id            = $request->educationId;
         $findEducation = Education::find($id);
@@ -92,7 +93,7 @@ class EducationController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function delete(Request $request)
+    public function delete(Request $request): JsonResponse
     {
         $id = $request->educationId;
         Education::where('id', $id)->delete();

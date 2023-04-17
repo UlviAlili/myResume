@@ -133,8 +133,8 @@
                     <span class="menu-title">Education</span>
                 </a>
             </li>
-            <li class="nav-item menu-items {{Route::is('admin.education.index') ? "active" : ""}} {{Route::is('admin.education.create') ? "active" : ""}}">
-                <a class="nav-link" href="{{route("admin.education.index")}}">
+            <li class="nav-item menu-items {{Route::is('admin.experience.index') ? "active" : ""}} {{Route::is('admin.experience.create') ? "active" : ""}}">
+                <a class="nav-link" href="{{route("admin.experience.index")}}">
                     <span class="menu-icon">
                         <i class="mdi mdi-playlist-play"></i>
                     </span>
