@@ -24,17 +24,17 @@
         </div>
         <nav class="social-links">
             @foreach($socials as $social)
-                <a href="{{$social->link}}" class="social-link" data-toggle="tooltip" title="{{$social->name}}"><i class="fab fa-{{$social->slug}}"></i></a>
+                <a href="{{$social?->link}}" class="social-link" data-toggle="tooltip" title="{{$social?->name}}"><i class="fab fa-{{$social?->slug}}"></i></a>
             @endforeach
         </nav>
         <div class="widget">
             <h5 class="widget-title">personal information</h5>
             <div class="widget-content">
-                <p>WEBSITE : {{$profile->website}}</p>
-                <p>PHONE : {{$profile->phone}}</p>
-                <p>MAIL : {{$profile->mail}}</p>
-                <p>Location : {{$profile->location}}</p>
-                <a href="{{asset("storage/$profile->cv")}}" class="btn btn-download-cv btn-primary rounded-pill" target="_blank">DOWNLOAD CV</a>
+                <p>WEBSITE : {{$profile?->website}}</p>
+                <p>PHONE : {{$profile?->phone}}</p>
+                <p>MAIL : {{$profile?->mail}}</p>
+                <p>Location : {{$profile?->location}}</p>
+                <a href="{{asset("storage/$profile?->cv")}}" class="btn btn-download-cv btn-primary rounded-pill" target="_blank">DOWNLOAD CV</a>
             </div>
         </div>
         {{--        <div class="widget card">--}}
@@ -75,7 +75,7 @@
                 <div class="widget-content">
                     <h5 class="widget-title card-title">LANGUAGES</h5>
                     @foreach($languages as $language)
-                        <p>{{$language->language}} : {{$language->level}}</p>
+                        <p>{{$language?->language}} : {{$language?->level}}</p>
                     @endforeach
                 </div>
             </div>
@@ -85,7 +85,7 @@
                 <div class="widget-content">
                     <h5 class="widget-title card-title">INTERESTS</h5>
                     @foreach($interests as $interest)
-                        <p>{{$interest->name}}</p>
+                        <p>{{$interest?->name}}</p>
                     @endforeach
                 </div>
             </div>

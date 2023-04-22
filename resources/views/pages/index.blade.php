@@ -21,14 +21,14 @@
                 <ul class="time-line">
                     @foreach($educationList as $education)
                         <li class="time-line-item">
-                            <span class="badge badge-primary" style="font-size: 12px;">{{$education->education_date}}</span>
-                            <h6 class="time-line-item-title" style="font-size: 16px;">{{$education->faculty}}</h6>
-                            <p class="time-line-item-subtitle" style="font-size: 14px;">@if($education->education_type === 0)
+                            <span class="badge badge-primary" style="font-size: 12px;">{{$education?->education_date}}</span>
+                            <h6 class="time-line-item-title" style="font-size: 16px;">{{$education?->faculty}}</h6>
+                            <p class="time-line-item-subtitle" style="font-size: 14px;">@if($education?->education_type === 0)
                                     Bachelor ,
-                                @elseif($education->education_type === 1)
+                                @elseif($education?->education_type === 1)
                                     Master ,
-                                @endif {{$education->university}}</p>
-                            <p class="time-line-item-content" style="font-size: 13px;">{{$education->description}}</p>
+                                @endif {{$education?->university}}</p>
+                            <p class="time-line-item-content" style="font-size: 13px;">{{$education?->description}}</p>
                         </li>
                     @endforeach
 
@@ -40,10 +40,10 @@
                 <ul class="time-line">
                     @foreach($experienceList as $experience)
                         <li class="time-line-item">
-                            <span class="badge badge-primary" style="font-size: 12px;">{{$experience->experience_date}}</span>
-                            <h6 class="time-line-item-title" style="font-size: 16px;">{{$experience->position}}</h6>
-                            <p class="time-line-item-subtitle" style="font-size: 14px;">{{$experience->company}}</p>
-                            <p class="time-line-item-content" style="font-size: 13px;">{{$experience->description}}</p>
+                            <span class="badge badge-primary" style="font-size: 12px;">{{$experience?->experience_date}}</span>
+                            <h6 class="time-line-item-title" style="font-size: 16px;">{{$experience?->position}}</h6>
+                            <p class="time-line-item-subtitle" style="font-size: 14px;">{{$experience?->company}}</p>
+                            <p class="time-line-item-content" style="font-size: 13px;">{{$experience?->description}}</p>
                         </li>
                     @endforeach
                 </ul>
