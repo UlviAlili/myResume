@@ -42,24 +42,24 @@
                             </thead>
                             <tbody>
                             @foreach($experiences as $experience)
-                                <tr id="{{$experience->id}}">
-                                    <td>{{$experience->id}}</td>
-                                    <td>{{$experience->company}}</td>
-                                    <td>{{$experience->position}}</td>
-                                    <td>{{$experience->experience_date}}</td>
-                                    <td>{{$experience->description}}</td>
+                                <tr id="{{$experience?->id}}">
+                                    <td>{{$experience?->id}}</td>
+                                    <td>{{$experience?->company}}</td>
+                                    <td>{{$experience?->position}}</td>
+                                    <td>{{$experience?->experience_date}}</td>
+                                    <td>{{$experience?->description}}</td>
                                     <td>
-                                        @if($experience->status)
-                                            <a data-id="{{$experience->id}}" href="javascript:void(0)" class="btn btn-success changeStatus">Active</a>
+                                        @if($experience?->status)
+                                            <a data-id="{{$experience?->id}}" href="javascript:void(0)" class="btn btn-success changeStatus">Active</a>
                                         @else
-                                            <a data-id="{{$experience->id}}" href="javascript:void(0)" class="btn btn-danger changeStatus">Passive</a>
+                                            <a data-id="{{$experience?->id}}" href="javascript:void(0)" class="btn btn-danger changeStatus">Passive</a>
                                         @endif
                                     </td>
-                                    <td>{{$experience->order}}</td>
-                                    <td>{{\Carbon\Carbon::parse($experience->created_at)->format('d-m-Y')}}</td>
+                                    <td>{{$experience?->order}}</td>
+                                    <td>{{\Carbon\Carbon::parse($experience?->created_at)->format('d-m-Y')}}</td>
                                     <td>
-                                        <a href="{{route('admin.experience.create',['experienceId'=>$experience->id])}}" class="btn btn-warning editExperience"><i class="fa fa-pen"></i></a>
-                                        <a data-id="{{$experience->id}}" href="javascript:void(0)" class="btn btn-danger deleteExperience"><i class="fa fa-trash"></i></a>
+                                        <a href="{{route('admin.experience.create',['experienceId'=>$experience?->id])}}" class="btn btn-warning editExperience"><i class="fa fa-pen"></i></a>
+                                        <a data-id="{{$experience?->id}}" href="javascript:void(0)" class="btn btn-danger deleteExperience"><i class="fa fa-trash"></i></a>
                                     </td>
                                 </tr>
                             @endforeach

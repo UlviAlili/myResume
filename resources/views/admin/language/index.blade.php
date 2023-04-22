@@ -40,22 +40,22 @@
                             </thead>
                             <tbody>
                             @foreach($languages as $language)
-                                <tr id="{{$language->id}}">
-                                    <td>{{$language->id}}</td>
-                                    <td>{{$language->language}}</td>
-                                    <td>{{$language->level}}</td>
+                                <tr id="{{$language?->id}}">
+                                    <td>{{$language?->id}}</td>
+                                    <td>{{$language?->language}}</td>
+                                    <td>{{$language?->level}}</td>
                                     <td>
-                                        @if($language->status)
-                                            <a data-id="{{$language->id}}" href="javascript:void(0)" class="btn btn-success changeStatus">Active</a>
+                                        @if($language?->status)
+                                            <a data-id="{{$language?->id}}" href="javascript:void(0)" class="btn btn-success changeStatus">Active</a>
                                         @else
-                                            <a data-id="{{$language->id}}" href="javascript:void(0)" class="btn btn-danger changeStatus">Passive</a>
+                                            <a data-id="{{$language?->id}}" href="javascript:void(0)" class="btn btn-danger changeStatus">Passive</a>
                                         @endif
                                     </td>
-                                    <td>{{$language->order}}</td>
-                                    <td>{{\Carbon\Carbon::parse($language->created_at)->format('d-m-Y')}}</td>
+                                    <td>{{$language?->order}}</td>
+                                    <td>{{\Carbon\Carbon::parse($language?->created_at)->format('d-m-Y')}}</td>
                                     <td>
-                                        <a href="{{route('admin.language.create',['languageId'=>$language->id])}}" class="btn btn-warning editLanguage"><i class="fa fa-pen"></i></a>
-                                        <a data-id="{{$language->id}}" href="javascript:void(0)" class="btn btn-danger deleteLanguage"><i class="fa fa-trash"></i></a>
+                                        <a href="{{route('admin.language.create',['languageId'=>$language?->id])}}" class="btn btn-warning editLanguage"><i class="fa fa-pen"></i></a>
+                                        <a data-id="{{$language?->id}}" href="javascript:void(0)" class="btn btn-danger deleteLanguage"><i class="fa fa-trash"></i></a>
                                     </td>
                                 </tr>
                             @endforeach

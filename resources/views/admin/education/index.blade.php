@@ -43,33 +43,33 @@
                             </thead>
                             <tbody>
                             @foreach($educations as $education)
-                                <tr id="{{$education->id}}">
-                                    <td>{{$education->id}}</td>
-                                    <td>{{$education->university}}</td>
-                                    <td>{{$education->faculty}}</td>
+                                <tr id="{{$education?->id}}">
+                                    <td>{{$education?->id}}</td>
+                                    <td>{{$education?->university}}</td>
+                                    <td>{{$education?->faculty}}</td>
                                     <td>
-                                        @if($education->education_type === 0)
+                                        @if($education?->education_type === 0)
                                             Bachelor
-                                        @elseif($education->education_type === 1)
+                                        @elseif($education?->education_type === 1)
                                             Master
                                         @else
                                             None
                                         @endif
                                     </td>
-                                    <td>{{$education->education_date}}</td>
-                                    <td>{{$education->description}}</td>
+                                    <td>{{$education?->education_date}}</td>
+                                    <td>{{$education?->description}}</td>
                                     <td>
-                                        @if($education->status)
-                                            <a data-id="{{$education->id}}" href="javascript:void(0)" class="btn btn-success changeStatus">Active</a>
+                                        @if($education?->status)
+                                            <a data-id="{{$education?->id}}" href="javascript:void(0)" class="btn btn-success changeStatus">Active</a>
                                         @else
-                                            <a data-id="{{$education->id}}" href="javascript:void(0)" class="btn btn-danger changeStatus">Passive</a>
+                                            <a data-id="{{$education?->id}}" href="javascript:void(0)" class="btn btn-danger changeStatus">Passive</a>
                                         @endif
                                     </td>
-                                    <td>{{$education->order}}</td>
-                                    <td>{{\Carbon\Carbon::parse($education->created_at)->format('d-m-Y')}}</td>
+                                    <td>{{$education?->order}}</td>
+                                    <td>{{\Carbon\Carbon::parse($education?->created_at)->format('d-m-Y')}}</td>
                                     <td>
-                                        <a href="{{route('admin.education.create',['educationId'=>$education->id])}}" class="btn btn-warning editEducation"><i class="fa fa-pen"></i></a>
-                                        <a data-id="{{$education->id}}" href="javascript:void(0)" class="btn btn-danger deleteEducation"><i class="fa fa-trash"></i></a>
+                                        <a href="{{route('admin.education.create',['educationId'=>$education?->id])}}" class="btn btn-warning editEducation"><i class="fa fa-pen"></i></a>
+                                        <a data-id="{{$education?->id}}" href="javascript:void(0)" class="btn btn-danger deleteEducation"><i class="fa fa-trash"></i></a>
                                     </td>
                                 </tr>
                             @endforeach

@@ -41,23 +41,23 @@
                             </thead>
                             <tbody>
                             @foreach($socials as $social)
-                                <tr id="{{$social->id}}">
-                                    <td>{{$social->id}}</td>
-                                    <td>{{$social->name}}</td>
-                                    <td>{{$social->slug}}</td>
-                                    <td>{{$social->link}}</td>
+                                <tr id="{{$social?->id}}">
+                                    <td>{{$social?->id}}</td>
+                                    <td>{{$social?->name}}</td>
+                                    <td>{{$social?->slug}}</td>
+                                    <td>{{$social?->link}}</td>
                                     <td>
-                                        @if($social->status)
-                                            <a data-id="{{$social->id}}" href="javascript:void(0)" class="btn btn-success changeStatus">Active</a>
+                                        @if($social?->status)
+                                            <a data-id="{{$social?->id}}" href="javascript:void(0)" class="btn btn-success changeStatus">Active</a>
                                         @else
-                                            <a data-id="{{$social->id}}" href="javascript:void(0)" class="btn btn-danger changeStatus">Passive</a>
+                                            <a data-id="{{$social?->id}}" href="javascript:void(0)" class="btn btn-danger changeStatus">Passive</a>
                                         @endif
                                     </td>
-                                    <td>{{$social->order}}</td>
-                                    <td>{{\Carbon\Carbon::parse($social->created_at)->format('d-m-Y')}}</td>
+                                    <td>{{$social?->order}}</td>
+                                    <td>{{\Carbon\Carbon::parse($social?->created_at)->format('d-m-Y')}}</td>
                                     <td>
-                                        <a href="{{route('admin.social.create',['socialId'=>$social->id])}}" class="btn btn-warning editSocial"><i class="fa fa-pen"></i></a>
-                                        <a data-id="{{$social->id}}" href="javascript:void(0)" class="btn btn-danger deleteSocial"><i class="fa fa-trash"></i></a>
+                                        <a href="{{route('admin.social.create',['socialId'=>$social?->id])}}" class="btn btn-warning editSocial"><i class="fa fa-pen"></i></a>
+                                        <a data-id="{{$social?->id}}" href="javascript:void(0)" class="btn btn-danger deleteSocial"><i class="fa fa-trash"></i></a>
                                     </td>
                                 </tr>
                             @endforeach
