@@ -93,38 +93,62 @@
                     <span class="menu-title">Dashboard</span>
                 </a>
             </li>
-            <li class="nav-item menu-items {{Route::is('admin.profile') ? "active" : ""}}">
-                <a class="nav-link" href="{{route('admin.profile')}}">
+            <li class="nav-item menu-items {{Route::is('admin.profile.index') ? "active" : ""}}">
+                <a class="nav-link" href="{{route('admin.profile.index')}}">
                     <span class="menu-icon">
-                        <i class="mdi mdi-contacts"></i>
+                        <i class="mdi mdi-information-variant"></i>
                     </span>
                     <span class="menu-title">Profile</span>
                 </a>
             </li>
             <li class="nav-item menu-items">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{route('admin.social.index')}}">
                     <span class="menu-icon">
-                        <i class="mdi mdi-table-large"></i>
+                        <i class="mdi mdi-link"></i>
                     </span>
-                    <span class="menu-title">Skills</span>
+                    <span class="menu-title">Social Links</span>
                 </a>
             </li>
             <li class="nav-item menu-items">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{route('admin.language.index')}}">
                     <span class="menu-icon">
-                        <i class="mdi mdi-table-large"></i>
+                        <i class="mdi mdi-link"></i>
                     </span>
                     <span class="menu-title">Languages</span>
                 </a>
             </li>
             <li class="nav-item menu-items">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{route('admin.interest.index')}}">
                     <span class="menu-icon">
-                        <i class="mdi mdi-table-large"></i>
+                        <i class="mdi mdi-link"></i>
                     </span>
                     <span class="menu-title">Interests</span>
                 </a>
             </li>
+            <li class="nav-item menu-items">
+                <a class="nav-link" href="#">
+                    <span class="menu-icon">
+                        <i class="mdi mdi-lead-pencil"></i>
+                    </span>
+                    <span class="menu-title">Skills</span>
+                </a>
+            </li>
+            {{--            <li class="nav-item menu-items">--}}
+            {{--                <a class="nav-link" href="#">--}}
+            {{--                    <span class="menu-icon">--}}
+            {{--                        <i class="mdi mdi-table-large"></i>--}}
+            {{--                    </span>--}}
+            {{--                    <span class="menu-title">Languages</span>--}}
+            {{--                </a>--}}
+            {{--            </li>--}}
+            {{--            <li class="nav-item menu-items">--}}
+            {{--                <a class="nav-link" href="#">--}}
+            {{--                    <span class="menu-icon">--}}
+            {{--                        <i class="mdi mdi-table-large"></i>--}}
+            {{--                    </span>--}}
+            {{--                    <span class="menu-title">Interests</span>--}}
+            {{--                </a>--}}
+            {{--            </li>--}}
             <li class="nav-item menu-items {{Route::is('admin.education.index') ? "active" : ""}} {{Route::is('admin.education.create') ? "active" : ""}}">
                 <a class="nav-link" href="{{route("admin.education.index")}}">
                     <span class="menu-icon">

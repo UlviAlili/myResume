@@ -16,35 +16,67 @@
 <div class="content-wrapper">
     <aside>
         <div class="profile-img-wrapper">
-            <img src="{{asset("assets/images/faces/Ulvi.jpg")}}" alt="profile">
+            <img src="{{asset("storage/$profile?->image")}}" alt="profile">
         </div>
-        <h1 class="profile-name">Ulvi Alili</h1>
+        <h1 class="profile-name">{{$profile?->full_name}}</h1>
         <div class="text-center">
-            <span class="badge badge-white badge-pill profile-designation">Laravel Developer</span>
+            <span class="badge badge-white badge-pill profile-designation">{{$profile?->job_name}}</span>
         </div>
         <nav class="social-links">
-            <a href="https://www.linkedin.com/in/ulvi-alili-1b2022188/" class="social-link"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/UlviAlili" class="social-link"><i class="fab fa-github"></i></a>
+            @foreach($socials as $social)
+                <a href="{{$social->link}}" class="social-link" data-toggle="tooltip" title="{{$social->name}}"><i class="fab fa-{{$social->slug}}"></i></a>
+            @endforeach
         </nav>
         <div class="widget">
             <h5 class="widget-title">personal information</h5>
             <div class="widget-content">
-                <p>WEBSITE : alili-resume.store</p>
-                <p>PHONE : +994 50 412 19 07</p>
-                <p>MAIL : Ulvi96alili@gmail.com</p>
-                <p>Location : Sumqayit, Azerbaijan</p>
-                <button class="btn btn-download-cv btn-primary rounded-pill">
-                    <img src="{{asset("assets/images/download.svg")}}" alt="download" class="btn-img">DOWNLOAD CV
-                </button>
+                <p>WEBSITE : {{$profile->website}}</p>
+                <p>PHONE : {{$profile->phone}}</p>
+                <p>MAIL : {{$profile->mail}}</p>
+                <p>Location : {{$profile->location}}</p>
+                <a href="{{asset("storage/$profile->cv")}}" class="btn btn-download-cv btn-primary rounded-pill" target="_blank">DOWNLOAD CV</a>
             </div>
         </div>
+        {{--        <div class="widget card">--}}
+        {{--            <div class="card-body">--}}
+        {{--                <div class="widget-content">--}}
+        {{--                    <h5 class="widget-title card-title">SKILLS</h5>--}}
+        {{--                    <p> PHP--}}
+        {{--                    <div class="progress inline-flex">--}}
+        {{--                        <div class="progress-bar bg-success" role="progressbar" style="width: 75%"></div>--}}
+        {{--                    </div>--}}
+        {{--                    </p>--}}
+        {{--                    <hr>--}}
+        {{--                    <p>Laravel framework</p>--}}
+        {{--                    <div class="progress inline-flex">--}}
+        {{--                        <div class="progress-bar bg-success" role="progressbar" style="width: 85%"></div>--}}
+        {{--                    </div>--}}
+        {{--                    <hr>--}}
+        {{--                    <p>HTML</p>--}}
+        {{--                    <div class="progress inline-flex">--}}
+        {{--                        <div class="progress-bar bg-success" role="progressbar" style="width: 90%"></div>--}}
+        {{--                    </div>--}}
+        {{--                    <hr>--}}
+        {{--                    <p>CSS</p>--}}
+        {{--                    <div class="progress inline-flex">--}}
+        {{--                        <div class="progress-bar bg-success" role="progressbar" style="width: 70%"></div>--}}
+        {{--                    </div>--}}
+        {{--                    <hr>--}}
+        {{--                    <p>Javascript</p>--}}
+        {{--                    <div class="progress inline-flex">--}}
+        {{--                        <div class="progress-bar bg-success" role="progressbar" style="width: 50%"></div>--}}
+        {{--                    </div>--}}
+        {{--                    <hr>--}}
+        {{--                </div>--}}
+        {{--            </div>--}}
+        {{--        </div>--}}
         <div class="widget card">
             <div class="card-body">
                 <div class="widget-content">
                     <h5 class="widget-title card-title">LANGUAGES</h5>
-                    <p>English : intermediate</p>
-                    <p>Azerbaijani : fluent</p>
-                    <p>Turkish : fluent</p>
+                    @foreach($languages as $language)
+                        <p>{{$language->language}} : {{$language->level}}</p>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -52,10 +84,9 @@
             <div class="card-body">
                 <div class="widget-content">
                     <h5 class="widget-title card-title">INTERESTS</h5>
-                    <p>Video games</p>
-                    <p>Technology</p>
-                    <p>Football</p>
-                    <p>Chess</p>
+                    @foreach($interests as $interest)
+                        <p>{{$interest->name}}</p>
+                    @endforeach
                 </div>
             </div>
         </div>

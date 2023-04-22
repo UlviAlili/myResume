@@ -3,8 +3,8 @@ aside {
         text-align: center;
 
         img {
-            width: 60px;
-            height: 60px;
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
         }
     }
@@ -18,7 +18,7 @@ aside {
 
     .profile-designation {
         padding: 5px 25px;
-        font-size: 12px;
+        font-size: 14px;
         line-height: 20px;
         font-weight: $font-weight-medium;
         margin-bottom: 10px;
@@ -30,7 +30,7 @@ aside {
 
         .social-link {
             display: inline-block;
-            font-size: 12px;
+            font-size: 15px;
             line-height: 1;
             color: $primary;
             text-align: center;
@@ -50,15 +50,18 @@ aside {
     .widget {
         text-align: center;
         margin-bottom: 28px;
+
         .widget-title {
             font-size: 14px;
             font-weight: $font-weight-medium;
             text-transform: uppercase;
             margin-bottom: 10px;
         }
+
         .widget-content {
             font-size: 13px;
-            p{
+
+            p {
                 margin-bottom: 5px;
 
                 &:last-of-type {

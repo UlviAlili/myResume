@@ -12,16 +12,16 @@
 
         <div class="contact-cards-wrapper">
             <div class="contact-card">
-                <h6 class="contact-card-title">CALL US</h6>
-                <p class="contact-card-content">+987 654 3210 , +987 654 3210</p>
+                <h6 class="contact-card-title">CALL ME</h6>
+                <p class="contact-card-content">+994 50 412 19 07</p>
             </div>
             <div class="contact-card">
-                <h6 class="contact-card-title">Email Us</h6>
-                <p class="contact-card-content">hello@liveresume.com</p>
+                <h6 class="contact-card-title">Email Me</h6>
+                <p class="contact-card-content">Ulvi96alili@gmail.com</p>
             </div>
         </div>
 
-        <form action="#!" class="contact-form">
+        <form action="#" class="contact-form">
             <div class="form-group form-group-name">
                 <label for="name" class="sr-only">Name</label>
                 <input type="text" name="name" id="name" class="form-control" placeholder="NAME">
@@ -43,8 +43,8 @@
 
         <div class="map-wrapper embed-responsive embed-responsive-16by9">
             <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6780.360388122327!2d-73.94920877520023!3d40.64704896956227!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25b449a659007%3A0xc4308a4849d49943!2s135%20E%2029th%20St%2C%20Brooklyn%2C%20NY%2011226%2C%20USA!5e0!3m2!1sen!2sin!4v1582520722599!5m2!1sen!2sin"
-                width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" class="embed-responsive-item"></iframe>
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d96970.1493416501!2d49.54867967290636!3d40.57875402552635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x403096dcd0923f6b%3A0xdf4767c369322a71!2zU3VtcWF5xLF0!5e0!3m2!1str!2saz!4v1681997365092!5m2!1str!2saz"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </section>
 @endsection

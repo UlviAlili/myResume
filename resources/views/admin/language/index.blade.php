@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title','Education')
+@section('title','Languages')
 
 @section("css")
 
@@ -7,11 +7,11 @@
 
 @section("content")
     <div class="page-header">
-        <h3 class="page-title">Education Information</h3>
+        <h3 class="page-title">Languages</h3>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{route("admin.index")}}">Dashboard</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Education</li>
+                <li class="breadcrumb-item active" aria-current="page">Languages</li>
             </ol>
         </nav>
     </div>
@@ -21,7 +21,7 @@
             <div class="card">
                 <div class="card-header">
                     <h4 class="m-0 font-weight-bold float-right">
-                        <a href="{{route('admin.education.create')}}" class="btn btn-primary btn-block btn-lg">Add Education</a>
+                        <a href="{{route('admin.language.create')}}" class="btn btn-primary btn-block btn-lg">Add Language</a>
                     </h4>
                 </div>
                 <div class="card-body">
@@ -30,11 +30,8 @@
                             <thead>
                             <tr>
                                 <th>#</th>
-                                <th>University</th>
-                                <th>Faculty</th>
-                                <th>Education Type</th>
-                                <th>Education Date</th>
-                                <th>Description</th>
+                                <th>Language</th>
+                                <th>Level</th>
                                 <th>Status</th>
                                 <th>Order</th>
                                 <th>Created at</th>
@@ -42,34 +39,23 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($educations as $education)
-                                <tr id="{{$education->id}}">
-                                    <td>{{$education->id}}</td>
-                                    <td>{{$education->university}}</td>
-                                    <td>{{$education->faculty}}</td>
+                            @foreach($languages as $language)
+                                <tr id="{{$language->id}}">
+                                    <td>{{$language->id}}</td>
+                                    <td>{{$language->language}}</td>
+                                    <td>{{$language->level}}</td>
                                     <td>
-                                        @if($education->education_type === 0)
-                                            Bachelor
-                                        @elseif($education->education_type === 1)
-                                            Master
+                                        @if($language->status)
+                                            <a data-id="{{$language->id}}" href="javascript:void(0)" class="btn btn-success changeStatus">Active</a>
                                         @else
-                                            None
+                                            <a data-id="{{$language->id}}" href="javascript:void(0)" class="btn btn-danger changeStatus">Passive</a>
                                         @endif
                                     </td>
-                                    <td>{{$education->education_date}}</td>
-                                    <td>{{$education->description}}</td>
+                                    <td>{{$language->order}}</td>
+                                    <td>{{\Carbon\Carbon::parse($language->created_at)->format('d-m-Y')}}</td>
                                     <td>
-                                        @if($education->status)
-                                            <a data-id="{{$education->id}}" href="javascript:void(0)" class="btn btn-success changeStatus">Active</a>
-                                        @else
-                                            <a data-id="{{$education->id}}" href="javascript:void(0)" class="btn btn-danger changeStatus">Passive</a>
-                                        @endif
-                                    </td>
-                                    <td>{{$education->order}}</td>
-                                    <td>{{\Carbon\Carbon::parse($education->created_at)->format('d-m-Y')}}</td>
-                                    <td>
-                                        <a href="{{route('admin.education.create',['educationId'=>$education->id])}}" class="btn btn-warning editEducation"><i class="fa fa-pen"></i></a>
-                                        <a data-id="{{$education->id}}" href="javascript:void(0)" class="btn btn-danger deleteEducation"><i class="fa fa-trash"></i></a>
+                                        <a href="{{route('admin.language.create',['languageId'=>$language->id])}}" class="btn btn-warning editLanguage"><i class="fa fa-pen"></i></a>
+                                        <a data-id="{{$language->id}}" href="javascript:void(0)" class="btn btn-danger deleteLanguage"><i class="fa fa-trash"></i></a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -92,14 +78,14 @@
         });
 
         $('.changeStatus').click(function () {
-            let educationId = $(this).attr('data-id');
+            let languageId = $(this).attr('data-id');
             let self = $(this);
             $.ajax({
-                url: "{{ route('admin.education.status') }}",
+                url: "{{ route('admin.language.status') }}",
                 type: "POST",
                 async: false,
                 data: {
-                    educationId: educationId
+                    languageId: languageId
                 },
                 success: function (response) {
                     Swal.fire({
@@ -123,8 +109,8 @@
             });
         });
 
-        $('.deleteEducation').click(function () {
-            let educationId = $(this).attr('data-id');
+        $('.deleteLanguage').click(function () {
+            let languageId = $(this).attr('data-id');
 
             Swal.fire({
                 title: 'Are you sure?',
@@ -137,20 +123,20 @@
             }).then((result) => {
                 if (result.isConfirmed) {
                     $.ajax({
-                        url: "{{ route('admin.education.delete') }}",
+                        url: "{{ route('admin.language.delete') }}",
                         type: "POST",
                         async: false,
                         data: {
-                            educationId: educationId
+                            languageId: languageId
                         },
                         success: function (response) {
                             Swal.fire({
                                 icon: "success",
                                 title: "Successful",
-                                text: "Education deleted"
+                                text: "Language deleted"
                             });
 
-                            $("tr#" + educationId).remove();
+                            $("tr#" + languageId).remove();
                         },
                         error: function () {
 

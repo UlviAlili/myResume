@@ -7,47 +7,43 @@
 @section('content')
 
     <section class="intro-section">
-        <h2 class="section-title">Hello, Ulvi Alili!</h2>
-        <p>I'm Laravel Developer from Baku, Azerbaijan, working in web development. I enjoy turning complex problems into simple, beautiful and intuitive designs. My job is to
-           build your website so that it is functional and user-friendly but at the same time attractive.
-           Moreover, I add personal touch to your product and make sure that is eye-catching and easy to use.
-           My aim is to bring across your message and identity in the most creative way. I created web design
-           for many famous brand companies.</p>
-        <a href="#!" class="btn btn-primary btn-hire-me">HIRE ME</a>
+        <h2 class="section-title">{{$profile?->main_title}}</h2>
+        <p>
+            {!!$profile?->about_text!!}
+        </p>
+        <a href="{{route('contact')}}" class="btn btn-primary btn-hire-me">{{$profile?->btn_contact_text}}</a>
     </section>
     <section class="resume-section">
         <div class="row">
             <div class="col-lg-6">
-                <h6 class="section-subtitle">RESUME</h6>
+                <h6 class="section-subtitle">{{$profile?->small_title_left}}</h6>
                 <h2 class="section-title">EDUCATION</h2>
                 <ul class="time-line">
                     @foreach($educationList as $education)
                         <li class="time-line-item">
-                            <span class="badge badge-primary">{{$education->education_date}}</span>
-                            <h6 class="time-line-item-title">{{$education->faculty}}</h6>
-                            <p class="time-line-item-subtitle">@if($education->education_type === 0)
-                                    Bachelor
+                            <span class="badge badge-primary" style="font-size: 12px;">{{$education->education_date}}</span>
+                            <h6 class="time-line-item-title" style="font-size: 16px;">{{$education->faculty}}</h6>
+                            <p class="time-line-item-subtitle" style="font-size: 14px;">@if($education->education_type === 0)
+                                    Bachelor ,
                                 @elseif($education->education_type === 1)
-                                    Master
-                                @else
-                                    High School
-                                @endif, {{$education->university}}</p>
-                            <p class="time-line-item-content">{{$education->description}}</p>
+                                    Master ,
+                                @endif {{$education->university}}</p>
+                            <p class="time-line-item-content" style="font-size: 13px;">{{$education->description}}</p>
                         </li>
                     @endforeach
 
                 </ul>
             </div>
             <div class="col-lg-6">
-                <h6 class="section-subtitle">RESUME</h6>
+                <h6 class="section-subtitle">{{$profile?->small_title_right}}</h6>
                 <h2 class="section-title">Experience</h2>
                 <ul class="time-line">
                     @foreach($experienceList as $experience)
                         <li class="time-line-item">
-                            <span class="badge badge-primary">{{$experience->experience_date}}</span>
-                            <h6 class="time-line-item-title">{{$experience->position}}</h6>
-                            <p class="time-line-item-subtitle">{{$experience->company}}</p>
-                            <p class="time-line-item-content">{{$experience->description}}</p>
+                            <span class="badge badge-primary" style="font-size: 12px;">{{$experience->experience_date}}</span>
+                            <h6 class="time-line-item-title" style="font-size: 16px;">{{$experience->position}}</h6>
+                            <p class="time-line-item-subtitle" style="font-size: 14px;">{{$experience->company}}</p>
+                            <p class="time-line-item-content" style="font-size: 13px;">{{$experience->description}}</p>
                         </li>
                     @endforeach
                 </ul>

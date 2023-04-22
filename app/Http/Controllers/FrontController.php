@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Education;
 use App\Models\Experience;
+use App\Models\Interest;
+use App\Models\Language;
+use App\Models\Profile;
+use App\Models\SocialLink;
 use Illuminate\Http\Request;
 
 class FrontController extends Controller
