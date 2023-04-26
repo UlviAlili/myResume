@@ -24,7 +24,7 @@
         </div>
         <nav class="social-links">
             @foreach($socials as $social)
-                <a href="{{$social?->link}}" class="social-link" data-toggle="tooltip" title="{{$social?->name}}"><i class="fab fa-{{$social?->slug}}"></i></a>
+                <a href="{{$social?->link}}" target="_blank" class="social-link" data-toggle="tooltip" title="{{$social?->name}}"><i class="fab fa-{{$social?->slug}}"></i></a>
             @endforeach
         </nav>
         <div class="widget">

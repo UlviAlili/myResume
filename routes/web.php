@@ -5,6 +5,7 @@ use App\Http\Controllers\admin\EducationController;
 use App\Http\Controllers\admin\ExperienceController;
 use App\Http\Controllers\admin\InterestController;
 use App\Http\Controllers\admin\LanguageController;
+use App\Http\Controllers\admin\PortfolioController;
 use App\Http\Controllers\admin\ProfileController;
 use App\Http\Controllers\admin\SocialLinkController;
 use App\Http\Controllers\FrontController;
@@ -41,7 +42,6 @@ Route::prefix("admin")->name('admin.')->middleware('auth')->group(function () {
     Route::resource('education', EducationController::class);
     Route::post('/education-status', [EducationController::class, 'changeStatus'])->name('education.status');
     Route::post('/education-delete', [EducationController::class, 'delete'])->name('education.delete');
-    //    Route::get("/profile", [ProfileController::class, 'index'])->name('profile');
 
     Route::name('experience.')->group(function () {
         Route::get('/experience', [ExperienceController::class, 'index'])->name('index');
@@ -58,7 +58,6 @@ Route::prefix("admin")->name('admin.')->middleware('auth')->group(function () {
         Route::post('/social-status', [SocialLinkController::class, 'changeStatus'])->name('status');
         Route::post('/social-delete', [SocialLinkController::class, 'delete'])->name('delete');
     });
-
     Route::name('language.')->group(function () {
         Route::get('/language', [LanguageController::class, 'index'])->name('index');
         Route::get('/language-create', [LanguageController::class, 'create'])->name('create');
@@ -73,6 +72,9 @@ Route::prefix("admin")->name('admin.')->middleware('auth')->group(function () {
         Route::post('/interest-status', [InterestController::class, 'changeStatus'])->name('status');
         Route::post('/interest-delete', [InterestController::class, 'delete'])->name('delete');
     });
+
+    Route::resource('portfolio', PortfolioController::class);
+    Route::post('/portfolio-status', [PortfolioController::class, 'changeStatus'])->name('portfolio.status');
 
     Route::get('logs', [LogViewerController::class, 'index']);
 });

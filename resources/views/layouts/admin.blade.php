@@ -101,7 +101,7 @@
                     <span class="menu-title">Profile</span>
                 </a>
             </li>
-            <li class="nav-item menu-items">
+            <li class="nav-item menu-items {{Route::is('admin.social.index') ? "active" : ""}} {{Route::is('admin.social.create') ? "active" : ""}}">
                 <a class="nav-link" href="{{route('admin.social.index')}}">
                     <span class="menu-icon">
                         <i class="mdi mdi-link"></i>
@@ -109,7 +109,7 @@
                     <span class="menu-title">Social Links</span>
                 </a>
             </li>
-            <li class="nav-item menu-items">
+            <li class="nav-item menu-items {{Route::is('admin.language.index') ? "active" : ""}} {{Route::is('admin.language.create') ? "active" : ""}}">
                 <a class="nav-link" href="{{route('admin.language.index')}}">
                     <span class="menu-icon">
                         <i class="mdi mdi-link"></i>
@@ -117,7 +117,7 @@
                     <span class="menu-title">Languages</span>
                 </a>
             </li>
-            <li class="nav-item menu-items">
+            <li class="nav-item menu-items {{Route::is('admin.interest.index') ? "active" : ""}} {{Route::is('admin.interest.create') ? "active" : ""}}">
                 <a class="nav-link" href="{{route('admin.interest.index')}}">
                     <span class="menu-icon">
                         <i class="mdi mdi-link"></i>
@@ -181,8 +181,8 @@
                     <span class="menu-title">Certificates</span>
                 </a>
             </li>
-            <li class="nav-item menu-items">
-                <a class="nav-link" href="#">
+            <li class="nav-item menu-items {{Route::is('admin.portfolio.index') ? "active" : ""}} {{Route::is('admin.portfolio.create') ? "active" : ""}} {{Route::is('admin.portfolio.edit') ? "active" : ""}}">
+                <a class="nav-link" href="{{route('admin.portfolio.index')}}">
                     <span class="menu-icon">
                         <i class="mdi mdi-file-document-box"></i>
                     </span>
