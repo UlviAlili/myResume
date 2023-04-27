@@ -6,6 +6,7 @@ use App\Models\Education;
 use App\Models\Experience;
 use App\Models\Interest;
 use App\Models\Language;
+use App\Models\Portfolio;
 use App\Models\Profile;
 use App\Models\SocialLink;
 use Illuminate\Http\Request;
@@ -30,7 +31,23 @@ class FrontController extends Controller
 
     public function portfolio()
     {
-        return view('pages.portfolio');
+        $portfolios = Portfolio::with('featuredImage')
+                               ->where('status', 1)
+                               ->orderByDesc('id')->get();
+        return view('pages.portfolio', compact('portfolios'));
+    }
+
+    public function portfolioDetails($id)
+    {
+        $portfolio = Portfolio::with('images')
+                               ->where('status', 1)
+                               ->where("id", $id)->first();
+
+        if (is_null($portfolio)) {
+            abort(404, 'Portfolio not found.');
+        }
+
+        return view('pages.portfolioDetails', compact('portfolio'));
     }
 
     public function blog()

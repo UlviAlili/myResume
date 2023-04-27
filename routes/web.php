@@ -27,6 +27,7 @@ Route::middleware('frontData')->group(function () {
     Route::get('/', [FrontController::class, 'index'])->name('home');
     Route::get('/resume', [FrontController::class, 'resume'])->name('resume');
     Route::get('/portfolio', [FrontController::class, 'portfolio'])->name('portfolio');
+    Route::get('portfolio/details/{id}', [FrontController::class, 'portfolioDetails'])->name('portfolio.details');
     Route::get('/blog', [FrontController::class, 'blog'])->name('blog');
     Route::get('/contact', [FrontController::class, 'contact'])->name('contact');
 });
@@ -75,6 +76,11 @@ Route::prefix("admin")->name('admin.')->middleware('auth')->group(function () {
 
     Route::resource('portfolio', PortfolioController::class);
     Route::post('/portfolio-status', [PortfolioController::class, 'changeStatus'])->name('portfolio.status');
+    Route::get('portfolio/images/{id}', [PortfolioController::class, 'showImages'])->name('portfolio.images');
+    Route::post('portfolio/images/{id}', [PortfolioController::class, 'addImages'])->name('portfolio.add-images');
+    Route::delete('portfolio/images/{id}', [PortfolioController::class, 'deleteImages'])->name('portfolio.delete-images');
+    Route::post('portfolio/images-status', [PortfolioController::class, 'statusImages'])->name('portfolio.status-images');
+    Route::post('portfolio/images-feature', [PortfolioController::class, 'featureImage'])->name('portfolio.feature-images');
 
     Route::get('logs', [LogViewerController::class, 'index']);
 });

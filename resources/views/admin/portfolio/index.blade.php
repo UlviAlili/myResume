@@ -53,7 +53,11 @@
                             @foreach($portfolios as $portfolio)
                                 <tr id="{{$portfolio?->id}}">
                                     <td>{{$portfolio?->id}}</td>
-                                    <td><img src="{{asset('storage/'.$portfolio->featuredImage?->image)}}" width="50" alt=""></td>
+                                    <td>
+                                        <a href="{{route('admin.portfolio.images',['id' => $portfolio->id])}}">
+                                            <img src="{{asset('storage/'.$portfolio->featuredImage?->image)}}" width="50" alt="">
+                                        </a>
+                                    </td>
                                     <td>{{$portfolio?->title}}</td>
                                     <td>{{$portfolio?->tags}}</td>
                                     <td title="{{strip_tags($portfolio?->about)}}">{{strip_tags(substr($portfolio?->about, 0, 10)) }}</td>

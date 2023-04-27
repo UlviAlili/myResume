@@ -181,7 +181,7 @@
                     <span class="menu-title">Certificates</span>
                 </a>
             </li>
-            <li class="nav-item menu-items {{Route::is('admin.portfolio.index') ? "active" : ""}} {{Route::is('admin.portfolio.create') ? "active" : ""}} {{Route::is('admin.portfolio.edit') ? "active" : ""}}">
+            <li class="nav-item menu-items {{Route::is('admin.portfolio.index') ? "active" : ""}} {{Route::is('admin.portfolio.create') ? "active" : ""}} {{Route::is('admin.portfolio.edit') ? "active" : ""}} {{Route::is('admin.portfolio.images') ? "active" : ""}}">
                 <a class="nav-link" href="{{route('admin.portfolio.index')}}">
                     <span class="menu-icon">
                         <i class="mdi mdi-file-document-box"></i>

@@ -6,7 +6,7 @@
     <nav class="collapsible-nav" id="collapsible-nav">
         <a href="{{route('home')}}" class="nav-link {{ Route::is("home") ? "active" : "" }}">HOME</a>
         <a href="{{route('resume')}}" class="nav-link {{ Route::is("resume") ? "active" : "" }}">RESUME</a>
-        <a href="{{route('portfolio')}}" class="nav-link {{ Route::is("portfolio") ? "active" : "" }}">PORTFOLIO</a>
+        <a href="{{route('portfolio')}}" class="nav-link {{ Route::is("portfolio") ? "active" : "" }} {{ Route::is("portfolio.details") ? "active" : "" }}">PORTFOLIO</a>
         <a href="{{route('blog')}}" class="nav-link {{ Route::is("blog") ? "active" : "" }}">BLOG</a>
         <a href="{{route('contact')}}" class="nav-link {{ Route::is("contact") ? "active" : "" }}">CONTACT</a>
     </nav>

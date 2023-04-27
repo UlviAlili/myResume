@@ -17,4 +17,9 @@ class Portfolio extends Model
         return $this->hasOne(Portfolios_Images::class, 'portfolio_id', 'id')
                     ->where('featured', 1);
     }
+
+    public function images()
+    {
+        return $this->hasMany(Portfolios_Images::class, 'portfolio_id', 'id');
+    }
 }

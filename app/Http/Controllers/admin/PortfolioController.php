@@ -9,6 +9,8 @@ use App\Models\Portfolios_Images;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use PHPUnit\Exception;
+use function PHPUnit\Framework\isEmpty;
 
 class PortfolioController extends Controller
 {
@@ -42,7 +44,8 @@ class PortfolioController extends Controller
 
         if ($request->file('image')) {
             $now = now()->format('YmdHis');
-            $i   = 0;
+            $p   = Portfolios_Images::where('portfolio_id', $portfolio->id)->get();
+            $i   = count($p) > 0 ? 1 : 0;
             foreach ($request->file('image') as $image) {
                 $extension = $image->getClientOriginalExtension();
                 $name      = $image->getClientOriginalName();
@@ -73,11 +76,101 @@ class PortfolioController extends Controller
         //
     }
 
+    public function showImages(Request $request, string $id)
+    {
+        $images = Portfolios_Images::where('portfolio_id', $id)->get();
+
+        return view('admin.portfolio.images', compact('images'));
+    }
+
+    public function addImages(Request $request, $id)
+    {
+        if ($request->file('image')) {
+            $now = now()->format('YmdHis');
+            $p   = Portfolios_Images::where('portfolio_id', $id)->get();
+            $i   = count($p) > 0 ? 1 : 0;
+            foreach ($request->file('image') as $image) {
+                $extension = $image->getClientOriginalExtension();
+                $name      = $image->getClientOriginalName();
+                $explode2  = explode('.', $name);
+                $slugName  = Str::slug($explode2[0], '-') . "_" . $now . "." . $extension;
+
+                Storage::putFileAs('public/portfolio', $image, $slugName);
+
+                $path = 'portfolio/' . $slugName;
+
+                Portfolios_Images::create([
+                    'portfolio_id' => $id,
+                    'image'        => $path,
+                    'featured'     => $i == 0 ? 1 : 0,
+                    'status'       => 1,
+                ]);
+                $i = 1;
+            }
+        }
+
+        alert()->success("Successful", "Portfolio images added")->persistent(true, true);
+        return redirect()->back();
+    }
+
     public function edit(string $id)
     {
         $portfolio = Portfolio::find($id);
 
         return view('admin.portfolio.create', compact('portfolio'));
+    }
+
+    public function deleteImages($id)
+    {
+        try {
+            $image = Portfolios_Images::find($id);
+            if ($image) {
+                if (file_exists('storage/' . $image->image)) {
+                    unlink('storage/' . $image->image);
+                }
+                $image->delete();
+            }
+        } catch (Exception $exception) {
+            return response()->json(['error' => $exception->getMessage()], 500);
+        }
+
+        return response()->json(['success' => true], 200);
+    }
+
+    public function statusImages(Request $request)
+    {
+        $id            = $request->portfolioId;
+        $findPortfolio = Portfolios_Images::find($id);
+        if ($findPortfolio->featured === 1) {
+            $status = '';
+        } else {
+            $status                = $findPortfolio->status ? 0 : 1;
+            $findPortfolio->status = $status;
+            $findPortfolio->save();
+        }
+
+        return response()->json([
+            'status' => $status,
+        ]);
+    }
+
+    public function featureImage(Request $request)
+    {
+        $id            = $request->portfolioId;
+        $findImage     = Portfolios_Images::find($id);
+        $portfolio_id  = $findImage->portfolio_id;
+        $featuredImage = Portfolios_Images::where('portfolio_id', $portfolio_id)->where('featured', 1)->first();
+        $feature       = $findImage->featured ? 0 : 1;
+
+        $featuredImage->featured = 0;
+        $featuredImage->save();
+
+        $findImage->featured = $feature;
+        $findImage->save();
+
+        return response()->json([
+            'feature' => $feature,
+        ]);
     }
 
     public function update(PortfolioRequest $request, string $id)
@@ -98,7 +191,8 @@ class PortfolioController extends Controller
 
         if ($request->file('image')) {
             $now = now()->format('YmdHis');
-            $j   = 0;
+            $p   = Portfolios_Images::where('portfolio_id', $id)->get();
+            $j   = count($p) > 0 ? 1 : 0;
             foreach ($request->file('image') as $image2) {
                 $extension2 = $image2->getClientOriginalExtension();
                 $name2      = $image2->getClientOriginalName();
