@@ -6,7 +6,7 @@
     {{$portfolioText}}
 @endsection
 @section('css')
-
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
 @endsection
 @section('content')
     <div class="page-header">
@@ -93,6 +93,58 @@
 @endsection
 
 @section('js')
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            // Define function to open filemanager window
+            let lfm = function (options, cb) {
+                let route_prefix = (options && options.prefix) ? options.prefix : '/laravel-filemanager';
+                window.open(route_prefix + '?type=' + options.type || 'file', 'FileManager', 'width=900,height=600');
+                window.SetUrl = cb;
+            };
+
+            // Define LFM summernote button
+            let LFMButton = function (context) {
+                let ui = $.summernote.ui;
+                let button = ui.button({
+                    contents: '<i class="note-icon-picture"></i> ',
+                    tooltip: 'Insert image with filemanager',
+                    click: function () {
+
+                        lfm({type: 'image', prefix: '/laravel-filemanager'}, function (lfmItems, path) {
+                            lfmItems.forEach(function (lfmItem) {
+                                context.invoke('insertImage', lfmItem.url);
+                            });
+                        });
+
+                    }
+                });
+                return button.render();
+            };
+
+            // Initialize summernote with LFM button in the popover button group
+            // Please note that you can add this button to any other button group you'd like
+            $('#about').summernote({
+                placeholder: 'About Portfolio',
+                height: 100,
+                toolbar: [
+                    ['popovers', ['lfm']],
+                    ['style', ['style']],
+                    ['font', ['bold', 'underline', 'clear']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['table', ['table']],
+                    ['insert', ['link', 'video']],
+                    ['view', ['fullscreen', 'codeview', 'help']]
+                ],
+                buttons: {
+                    lfm: LFMButton
+                }
+            })
+        });
+    </script>
     <script>
         $("#image").change(function () {
             let image = $(this);

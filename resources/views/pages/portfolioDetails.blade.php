@@ -2,25 +2,39 @@
 @section("title",$portfolio->title)
 
 @section("css")
-
+    <link rel="stylesheet" href="{{asset('assets/css/magnific-popup.css')}}">
 @endsection
 
 @section("content")
     <section class="portfolio-section">
-        <h2 class="section-title">{{$portfolio->title}}</h2>
+        <h2 class="section-title mb-1">{{$portfolio->title}}</h2>
+        <small>{{$portfolio->tags}}</small>
+        <hr>
 
+        @if($portfolio->about)
+            {!! $portfolio->about !!}
+            <hr>
+        @endif
+        @if($portfolio->website)
+            Website: {{$portfolio->website}}
+            <hr>
+        @endif
+        @if($portfolio->keywords)
+            Keywords: {{$portfolio->keywords}}
+                <hr>
+        @endif
+        @if($portfolio->description)
+            Description:<br>
+                {{$portfolio->description}}
+                <hr>
+        @endif
         <div class="portfolio-wrapper">
-            {{--            @foreach($portfolios as $portfolio)--}}
-            {{--                <figure class="portfolio-item hover-box">--}}
-            {{--                    <a href="{{route('portfolio.details',['id'=>$portfolio->id])}}">--}}
-            {{--                        <img src="{{asset("storage/".$portfolio->featuredImage?->image)}}" alt="{{$portfolio->title}}" class="portfolio-item-img">--}}
-            {{--                    </a>--}}
-            {{--                    <figcaption class="portfolio-item-details overlay">--}}
-            {{--                        <h5 class="portfolio-item-title">{{$portfolio->title}}</h5>--}}
-            {{--                        <p class="portfolio-item-description">{{$portfolio->tags}}</p>--}}
-            {{--                    </figcaption>--}}
-            {{--                </figure>--}}
-            {{--            @endforeach--}}
+            @foreach($portfolio->images as $item)
+                <figure style="cursor: pointer;" class="portfolio-item hover-box" href="{{asset("storage/".$item->image)}}">
+                    <img src="{{asset("storage/".$item->image)}}"
+                         alt="{{$portfolio->title}}" class="portfolio-item-img">
+                </figure>
+            @endforeach
         </div>
 
     </section>
@@ -28,4 +42,15 @@
 
 @section("js")
     <script src="{{asset("assets/vendors/entry/jq.entry.min.js")}}"></script>
+    <script src="{{asset('assets/js/jquery.magnific-popup.min.js')}}"></script>
+    <script>
+        $(document).ready(function () {
+            $('.portfolio-item').magnificPopup({
+                gallery: {
+                    enabled: true
+                },
+                type: 'image' // this is default type
+            });
+        });
+    </script>
 @endsection

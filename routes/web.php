@@ -11,6 +11,7 @@ use App\Http\Controllers\admin\SocialLinkController;
 use App\Http\Controllers\FrontController;
 use Illuminate\Support\Facades\Route;
 use Rap2hpoutre\LaravelLogViewer\LogViewerController;
+use UniSharp\LaravelFilemanager\Lfm;
 
 /*
 |--------------------------------------------------------------------------
@@ -82,6 +83,12 @@ Route::prefix("admin")->name('admin.')->middleware('auth')->group(function () {
     Route::post('portfolio/images-status', [PortfolioController::class, 'statusImages'])->name('portfolio.status-images');
     Route::post('portfolio/images-feature', [PortfolioController::class, 'featureImage'])->name('portfolio.feature-images');
 
-    Route::get('logs', [LogViewerController::class, 'index']);
 });
+
+Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+    Lfm::routes();
+});
+
+Route::get('logs', [LogViewerController::class, 'index']);
+
 
