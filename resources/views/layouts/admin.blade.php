@@ -125,30 +125,14 @@
                     <span class="menu-title">Interests</span>
                 </a>
             </li>
-            <li class="nav-item menu-items">
-                <a class="nav-link" href="#">
+            <li class="nav-item menu-items {{Route::is('admin.skills.index') ? "active" : ""}} {{Route::is('admin.skills.create') ? "active" : ""}}">
+                <a class="nav-link" href="{{route('admin.skills.index')}}">
                     <span class="menu-icon">
                         <i class="mdi mdi-lead-pencil"></i>
                     </span>
                     <span class="menu-title">Skills</span>
                 </a>
             </li>
-            {{--            <li class="nav-item menu-items">--}}
-            {{--                <a class="nav-link" href="#">--}}
-            {{--                    <span class="menu-icon">--}}
-            {{--                        <i class="mdi mdi-table-large"></i>--}}
-            {{--                    </span>--}}
-            {{--                    <span class="menu-title">Languages</span>--}}
-            {{--                </a>--}}
-            {{--            </li>--}}
-            {{--            <li class="nav-item menu-items">--}}
-            {{--                <a class="nav-link" href="#">--}}
-            {{--                    <span class="menu-icon">--}}
-            {{--                        <i class="mdi mdi-table-large"></i>--}}
-            {{--                    </span>--}}
-            {{--                    <span class="menu-title">Interests</span>--}}
-            {{--                </a>--}}
-            {{--            </li>--}}
             <li class="nav-item menu-items {{Route::is('admin.education.index') ? "active" : ""}} {{Route::is('admin.education.create') ? "active" : ""}}">
                 <a class="nav-link" href="{{route("admin.education.index")}}">
                     <span class="menu-icon">
@@ -165,6 +149,14 @@
                     <span class="menu-title">Experience</span>
                 </a>
             </li>
+            <li class="nav-item menu-items {{Route::is('admin.portfolio.index') ? "active" : ""}} {{Route::is('admin.portfolio.create') ? "active" : ""}} {{Route::is('admin.portfolio.edit') ? "active" : ""}} {{Route::is('admin.portfolio.images') ? "active" : ""}}">
+                <a class="nav-link" href="{{route('admin.portfolio.index')}}">
+                    <span class="menu-icon">
+                        <i class="mdi mdi-file-document-box"></i>
+                    </span>
+                    <span class="menu-title">Portfolio</span>
+                </a>
+            </li>
             <li class="nav-item menu-items">
                 <a class="nav-link" href="#">
                     <span class="menu-icon">
@@ -179,14 +171,6 @@
                         <i class="mdi mdi-contacts"></i>
                     </span>
                     <span class="menu-title">Certificates</span>
-                </a>
-            </li>
-            <li class="nav-item menu-items {{Route::is('admin.portfolio.index') ? "active" : ""}} {{Route::is('admin.portfolio.create') ? "active" : ""}} {{Route::is('admin.portfolio.edit') ? "active" : ""}} {{Route::is('admin.portfolio.images') ? "active" : ""}}">
-                <a class="nav-link" href="{{route('admin.portfolio.index')}}">
-                    <span class="menu-icon">
-                        <i class="mdi mdi-file-document-box"></i>
-                    </span>
-                    <span class="menu-title">Portfolio</span>
                 </a>
             </li>
         </ul>

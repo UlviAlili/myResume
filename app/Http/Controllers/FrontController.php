@@ -8,6 +8,7 @@ use App\Models\Interest;
 use App\Models\Language;
 use App\Models\Portfolio;
 use App\Models\Profile;
+use App\Models\Skill;
 use App\Models\SocialLink;
 use Illuminate\Http\Request;
 
@@ -40,8 +41,8 @@ class FrontController extends Controller
     public function portfolioDetails($id)
     {
         $portfolio = Portfolio::with('images')
-                               ->where('status', 1)
-                               ->where("id", $id)->first();
+                              ->where('status', 1)
+                              ->where("id", $id)->first();
 
         if (is_null($portfolio)) {
             abort(404, 'Portfolio not found.');
@@ -50,9 +51,12 @@ class FrontController extends Controller
         return view('pages.portfolioDetails', compact('portfolio'));
     }
 
-    public function blog()
+    public function skills()
     {
-        return view('pages.skills');
+        $skills = Skill::query()->where('status', 1)
+                       ->orderBy('order', 'ASC')->get();
+
+        return view('pages.skills', compact('skills'));
     }
 
     public function contact()

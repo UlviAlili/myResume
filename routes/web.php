@@ -7,6 +7,7 @@ use App\Http\Controllers\admin\InterestController;
 use App\Http\Controllers\admin\LanguageController;
 use App\Http\Controllers\admin\PortfolioController;
 use App\Http\Controllers\admin\ProfileController;
+use App\Http\Controllers\admin\SkillsController;
 use App\Http\Controllers\admin\SocialLinkController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\MailController;
@@ -30,7 +31,7 @@ Route::middleware('frontData')->group(function () {
     Route::get('/resume', [FrontController::class, 'resume'])->name('resume');
     Route::get('/portfolio', [FrontController::class, 'portfolio'])->name('portfolio');
     Route::get('portfolio/details/{id}', [FrontController::class, 'portfolioDetails'])->name('portfolio.details');
-    Route::get('/skills', [FrontController::class, 'blog'])->name('skills');
+    Route::get('/skills', [FrontController::class, 'skills'])->name('skills');
     Route::get('/contact', [FrontController::class, 'contact'])->name('contact');
 });
 
@@ -52,6 +53,14 @@ Route::prefix("admin")->name('admin.')->middleware('auth')->group(function () {
         Route::post('/experience-store', [ExperienceController::class, 'store'])->name('store');
         Route::post('/experience-status', [ExperienceController::class, 'status'])->name('status');
         Route::post('/experience-delete', [ExperienceController::class, 'delete'])->name('delete');
+    });
+
+    Route::name('skills.')->group(function () {
+        Route::get('/skills', [SkillsController::class, 'index'])->name('index');
+        Route::get('/skills-create', [SkillsController::class, 'create'])->name('create');
+        Route::post('/skills-store', [SkillsController::class, 'store'])->name('store');
+        Route::post('/skills-status', [SkillsController::class, 'status'])->name('status');
+        Route::post('/skills-delete', [SkillsController::class, 'delete'])->name('delete');
     });
 
     Route::name('social.')->group(function () {

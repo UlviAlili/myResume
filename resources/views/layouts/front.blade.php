@@ -31,10 +31,18 @@
         <div class="widget">
             <h5 class="widget-title">personal information</h5>
             <div class="widget-content">
-                <p>WEBSITE : {{$profile?->website}}</p>
-                <p>PHONE : {{$profile?->phone}}</p>
-                <p>MAIL : {{$profile?->mail}}</p>
-                <p>Location : {{$profile?->location}}</p>
+                @if($profile->website)
+                    <p>WEBSITE : {{$profile?->website}}</p>
+                @endif
+                @if($profile->phone)
+                    <p>PHONE : {{$profile?->phone}}</p>
+                @endif
+                @if($profile->mail)
+                    <p>MAIL : {{$profile?->mail}}</p>
+                @endif
+                @if($profile->location)
+                    <p>LOCATION : {{$profile?->location}}</p>
+                @endif
                 <a href="{{asset("storage/$profile?->cv")}}" class="btn btn-download-cv btn-primary rounded-pill" target="_blank">DOWNLOAD CV</a>
             </div>
         </div>
