@@ -11294,14 +11294,14 @@ main .service-card .service-icon {
 }
 
 main .service-card .service-title {
-    font-size: 12px;
+    font-size: 16px;
     font-weight: bold;
     line-height: 1;
     margin-bottom: 8px;
 }
 
 main .service-card .service-description {
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 300;
     max-width: 180px;
     margin-bottom: 0;
@@ -11617,7 +11617,7 @@ main .contact-section {
 }
 
 main .contact-section p {
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 300;
 }
 
@@ -11706,7 +11706,7 @@ main .contact-form .form-control {
     background-color: #f3f3f3;
     padding: 12px 14px;
     color: #000000;
-    font-size: 8px;
+    font-size: 13px;
     line-height: 1.5;
     min-height: 36px;
 }

@@ -52,7 +52,7 @@ class FrontController extends Controller
 
     public function blog()
     {
-        return view('pages.blog');
+        return view('pages.skills');
     }
 
     public function contact()

@@ -21,7 +21,8 @@
             </div>
         </div>
 
-        <form action="#" class="contact-form">
+        <form action="{{route('mail')}}" method="post" class="contact-form" id="mailForm">
+            @csrf
             <div class="form-group form-group-name">
                 <label for="name" class="sr-only">Name</label>
                 <input type="text" name="name" id="name" class="form-control" placeholder="NAME">
@@ -34,7 +35,7 @@
                 <label for="message" class="sr-only">Message</label>
                 <textarea name="message" id="message" class="form-control" placeholder="MESSAGE" rows="5"></textarea>
             </div>
-            <button type="submit" class="btn btn-primary form-submit-btn">SEND MESSAGE</button>
+            <button type="button" class="btn btn-primary form-submit-btn" id="send">SEND MESSAGE</button>
         </form>
 
     </section>
@@ -51,4 +52,40 @@
 
 @section("js")
     <script src="{{asset("assets/vendors/entry/jq.entry.min.js")}}"></script>
+    <script>
+        function isEmail(email) {
+            let regex = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+            return regex.test(email);
+        }
+
+        $('#send').click(function () {
+            if ($('#name').val().trim() === "") {
+                Swal.fire({
+                    icon: 'info',
+                    title: 'Warning!',
+                    text: "Name can't be empty",
+                })
+            } else if ($('#email').val().trim() === "") {
+                Swal.fire({
+                    icon: 'info',
+                    title: 'Warning!',
+                    text: "Email can't be empty",
+                })
+            } else if (!isEmail($('#email').val().trim())) {
+                Swal.fire({
+                    icon: 'info',
+                    title: 'Warning!',
+                    text: "Email is not correct",
+                })
+            } else if ($('#message').val().trim() === "") {
+                Swal.fire({
+                    icon: 'info',
+                    title: 'Warning!',
+                    text: "Message can't be empty",
+                })
+            } else {
+                $('#mailForm').submit();
+            }
+        });
+    </script>
 @endsection

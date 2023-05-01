@@ -9,6 +9,7 @@ use App\Http\Controllers\admin\PortfolioController;
 use App\Http\Controllers\admin\ProfileController;
 use App\Http\Controllers\admin\SocialLinkController;
 use App\Http\Controllers\FrontController;
+use App\Http\Controllers\MailController;
 use Illuminate\Support\Facades\Route;
 use Rap2hpoutre\LaravelLogViewer\LogViewerController;
 use UniSharp\LaravelFilemanager\Lfm;
@@ -29,7 +30,7 @@ Route::middleware('frontData')->group(function () {
     Route::get('/resume', [FrontController::class, 'resume'])->name('resume');
     Route::get('/portfolio', [FrontController::class, 'portfolio'])->name('portfolio');
     Route::get('portfolio/details/{id}', [FrontController::class, 'portfolioDetails'])->name('portfolio.details');
-    Route::get('/blog', [FrontController::class, 'blog'])->name('blog');
+    Route::get('/skills', [FrontController::class, 'blog'])->name('skills');
     Route::get('/contact', [FrontController::class, 'contact'])->name('contact');
 });
 
@@ -88,6 +89,8 @@ Route::prefix("admin")->name('admin.')->middleware('auth')->group(function () {
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
     Lfm::routes();
 });
+
+Route::post('/mail', [MailController::class, 'send'])->name('mail');
 
 Route::get('logs', [LogViewerController::class, 'index']);
 

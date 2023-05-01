@@ -9,6 +9,7 @@
     <link href="https://fonts.googleapis.com/css?family=Mukta:300,400,500,600,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{asset("assets/vendors/@fortawesome/fontawesome-free/css/all.min.css")}}">
     <link rel="stylesheet" href="{{asset("assets/css/live-resume.css")}}">
+    <link rel="stylesheet" href="{{asset('assets/sweet-alert/sweetalert2.min.css')}}">
     @yield('css')
 </head>
 <body>
@@ -102,6 +103,8 @@
 <script src="{{asset("assets/vendors/@popperjs/core/dist/umd/popper-base.min.js")}}"></script>
 <script src="{{asset("assets/vendors/bootstrap/dist/js/bootstrap.min.js")}}"></script>
 <script src="{{asset("assets/js/live-resume.js")}}"></script>
+<script src="{{asset("assets/sweet-alert/sweetalert2.all.min.js")}}"></script>
+@include('sweetalert::alert')
 @yield('js')
 </body>
 
