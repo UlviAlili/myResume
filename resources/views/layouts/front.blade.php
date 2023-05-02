@@ -10,6 +10,13 @@
     <link rel="stylesheet" href="{{asset("assets/vendors/@fortawesome/fontawesome-free/css/all.min.css")}}">
     <link rel="stylesheet" href="{{asset("assets/css/live-resume.css")}}">
     <link rel="stylesheet" href="{{asset('assets/sweet-alert/sweetalert2.min.css')}}">
+    <style>
+        @media (max-width: 991px) {
+            .btn-hide-on-mobile {
+                display: none;
+            }
+        }
+    </style>
     @yield('css')
 </head>
 <body>

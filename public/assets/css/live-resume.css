@@ -11016,7 +11016,7 @@ header {
     .collapsible-nav {
         position: fixed;
         right: 0;
-        bottom: 0;
+        left: -200px;
         overflow: auto;
         flex-direction: column;
         top: 71px;
