@@ -36,7 +36,7 @@
                         </div>
                         <div class="form-group">
                             <label for="about_text">About Text</label>
-                            <textarea class="form-control" name="about_text" id="about_text" placeholder="About Text">{!! $information?->about_text !!}</textarea>
+                            <textarea class="form-control" rows="6" name="about_text" id="about_text" placeholder="About Text">{!! $information?->about_text !!}</textarea>
                         </div>
                         <div class="form-group">
                             <label for="btn_contact_text">Contact Button Text</label>

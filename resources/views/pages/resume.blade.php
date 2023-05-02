@@ -89,19 +89,17 @@
                     <img src="{{asset("assets/images/001-target.svg")}}" alt="target">
                 </div>
                 <div class="media-body">
-                    <h5 class="service-title">web designing</h5>
-                    <p class="service-description">Mauris magna sapien, pharetra consectetur fringilla vitae, interdum sed
-                                                   tortor.</p>
+                    <h5 class="service-title">Web Designing</h5>
+                    <p class="service-description">Design, development, and management of web applications.</p>
                 </div>
             </div>
             <div class="media service-card col-lg-6">
                 <div class="service-icon">
-                    <img src="{{asset("assets/images/003-idea.svg")}}" alt="bulb">
+                    <img src="{{asset("assets/images/database-svgrepo.svg")}}" alt="bulb">
                 </div>
                 <div class="media-body">
-                    <h5 class="service-title">Graphic design</h5>
-                    <p class="service-description">Mauris magna sapien, pharetra consectetur fringilla vitae, interdum sed
-                                                   tortor.
+                    <h5 class="service-title">Database</h5>
+                    <p class="service-description">Designing, optimizing, and managing databases.
                     </p>
                 </div>
             </div>
@@ -111,19 +109,17 @@
                 </div>
                 <div class="media-body">
                     <h5 class="service-title">Development</h5>
-                    <p class="service-description">Mauris magna sapien, pharetra consectetur fringilla vitae, interdum sed
-                                                   tortor.
+                    <p class="service-description">Developing customized applications using Laravel framework technology.
                     </p>
                 </div>
             </div>
             <div class="media service-card col-lg-6">
                 <div class="service-icon">
-                    <img src="{{asset("assets/images/004-smartphone.svg")}}" alt="smartphone">
+                    <img src="{{asset("assets/images/team.svg")}}" alt="smartphone">
                 </div>
                 <div class="media-body">
-                    <h5 class="service-title">Mobile design</h5>
-                    <p class="service-description">Mauris magna sapien, pharetra consectetur fringilla vitae, interdum sed
-                                                   tortor.
+                    <h5 class="service-title">Others</h5>
+                    <p class="service-description">Teamwork and project management skills.
                     </p>
                 </div>
             </div>
