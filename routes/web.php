@@ -33,6 +33,7 @@ Route::middleware('frontData')->group(function () {
     Route::get('portfolio/details/{id}', [FrontController::class, 'portfolioDetails'])->name('portfolio.details');
     Route::get('/skills', [FrontController::class, 'skills'])->name('skills');
     Route::get('/contact', [FrontController::class, 'contact'])->name('contact');
+    Route::get('/socialShare', [FrontController::class, 'socialShare'])->name('socialShare');
 });
 
 Route::prefix("admin")->name('admin.')->middleware('auth')->group(function () {

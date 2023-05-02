@@ -10,6 +10,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Symfony\Component\HttpFoundation\Response;
+use Share;
 
 class FrontDataShareMiddleware
 {
@@ -28,10 +29,13 @@ class FrontDataShareMiddleware
 
         $interests = Interest::query()->where('status', 1)->orderBy('order', 'ASC')->get();
 
+        $socialShare = Share::page('https://alili-resume.store')->facebook()->twitter()->linkedin()->whatsapp()->getRawLinks();
+
         \Illuminate\Support\Facades\View::share('profile', $profile);
         \Illuminate\Support\Facades\View::share('socials', $socials);
         \Illuminate\Support\Facades\View::share('languages', $languages);
         \Illuminate\Support\Facades\View::share('interests', $interests);
+        \Illuminate\Support\Facades\View::share('socialShare', $socialShare);
 
         return $next($request);
     }

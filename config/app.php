@@ -200,6 +200,7 @@ return [
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
         UniSharp\LaravelFilemanager\LaravelFilemanagerServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+        Jorenvh\Share\Providers\ShareServiceProvider::class,
 
     ],
 
@@ -219,6 +220,7 @@ return [
         'Debugbar' => Barryvdh\Debugbar\Facades\Debugbar::class,
         'Alert'    => RealRashid\SweetAlert\Facades\Alert::class,
         'Image'    => Intervention\Image\Facades\Image::class,
+        'Share'    => Jorenvh\Share\ShareFacade::class,
 
     ])->toArray(),
 

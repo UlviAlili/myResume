@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Mail\SendMail;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
 class MailController extends Controller
 {
-    public function send(Request $request)
+    public function send(Request $request): RedirectResponse
     {
         $this->validate($request, [
             'name'    => 'required',

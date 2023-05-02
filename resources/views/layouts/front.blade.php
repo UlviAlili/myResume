@@ -19,7 +19,11 @@
         <div class="profile-img-wrapper">
             <img src="{{asset("storage/$profile?->image")}}" alt="profile">
         </div>
-        <h1 class="profile-name">{{$profile?->full_name}}</h1>
+        <h1 class="profile-name">
+            <a href="{{route('home')}}" style="text-decoration: none;">
+                {{$profile?->full_name}}
+            </a>
+        </h1>
         <div class="text-center">
             <span class="badge badge-white badge-pill profile-designation">{{$profile?->job_name}}</span>
         </div>

@@ -4,13 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Education;
 use App\Models\Experience;
-use App\Models\Interest;
-use App\Models\Language;
 use App\Models\Portfolio;
-use App\Models\Profile;
 use App\Models\Skill;
-use App\Models\SocialLink;
-use Illuminate\Http\Request;
 
 class FrontController extends Controller
 {
@@ -62,5 +57,10 @@ class FrontController extends Controller
     public function contact()
     {
         return view('pages.contact');
+    }
+
+    public function socialShare()
+    {
+        return view('layouts.front');
     }
 }
