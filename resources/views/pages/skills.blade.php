@@ -15,7 +15,9 @@
                     @foreach($skills as $skill)
                         <p>{{$skill->skills}}</p>
                         <div class="progress inline-flex">
-                            <div class="progress-bar bg-success" role="progressbar" style="width: {{$skill->progress}}%"></div>
+                            <div class="progress-bar progress-bar-striped progress-bar-animated @if($skill->order % 2 !== 0) bg-success @else bg-primary @endif" role="progressbar"
+                                 style="width: {{$skill->progress}}%">{{$skill->progress}}%
+                            </div>
                         </div>
                         <hr>
                     @endforeach

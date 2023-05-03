@@ -38,7 +38,7 @@ class PortfolioController extends Controller
             'website'     => $validated['website'],
             'keywords'    => $validated['keywords'],
             'description' => $validated['description'],
-            //            'order'       => $validated['order'],
+            'order'       => $validated['order'],
             'status'      => isset($validated['status']) ? 1 : 0,
         ]);
 
@@ -185,7 +185,7 @@ class PortfolioController extends Controller
             'website'     => $validatedUpdate['website'],
             'keywords'    => $validatedUpdate['keywords'],
             'description' => $validatedUpdate['description'],
-            //            'order'       => $validated['order'],
+            'order'       => $validatedUpdate['order'],
             'status'      => isset($validatedUpdate['status']) ? 1 : 0,
         ]);
 

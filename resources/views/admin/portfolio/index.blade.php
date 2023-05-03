@@ -44,7 +44,7 @@
                                 <th>Keywords</th>
                                 <th>Description</th>
                                 <th>Status</th>
-                                {{--                                <th>Order</th>--}}
+                                <th>Order</th>
                                 <th>Created at</th>
                                 <th>Actions</th>
                             </tr>
@@ -71,7 +71,7 @@
                                             <a data-id="{{$portfolio?->id}}" href="javascript:void(0)" class="btn btn-danger changeStatus">Passive</a>
                                         @endif
                                     </td>
-                                    {{--                                    <td>{{$portfolio?->order}}</td>--}}
+                                    <td>{{$portfolio?->order}}</td>
                                     <td>{{\Carbon\Carbon::parse($portfolio?->created_at)->format('d-m-Y')}}</td>
                                     <td>
                                         <a href="{{route('admin.portfolio.edit',['portfolio'=>$portfolio?->id])}}" class="btn btn-warning editPortfolio"><i class="fa fa-pen"></i></a>

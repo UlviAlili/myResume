@@ -72,11 +72,11 @@
                             <label for="image">Image ( png, jpg, jpeg )</label>
                             <input type="file" class="form-control" name="image[]" id="image" multiple>
                         </div>
-                        {{--                        <div class="form-group">--}}
-                        {{--                            <label for="order">Order</label>--}}
-                        {{--                            <input type="text" class="form-control" id="order" name="order"--}}
-                        {{--                                   placeholder="Order" value="{{$experience ? $experience->order : ''}}">--}}
-                        {{--                        </div>--}}
+                        <div class="form-group">
+                            <label for="order">Order</label>
+                            <input type="text" class="form-control" id="order" name="order"
+                                   placeholder="Order" value="{{$portfolio ? $portfolio->order : ''}}">
+                        </div>
                         <div class="form-group">
                             <div class="form-check form-check-primary">
                                 <label class="form-check-label" for="status">

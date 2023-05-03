@@ -29,7 +29,7 @@ class FrontController extends Controller
     {
         $portfolios = Portfolio::with('featuredImage')
                                ->where('status', 1)
-                               ->orderByDesc('id')->get();
+                               ->orderBy('order', 'ASC')->get();
         return view('pages.portfolio', compact('portfolios'));
     }
 

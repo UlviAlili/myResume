@@ -57,39 +57,6 @@
                 <a href="{{asset("storage/$profile?->cv")}}" class="btn btn-download-cv btn-primary rounded-pill" target="_blank">DOWNLOAD CV</a>
             </div>
         </div>
-        {{--        <div class="widget card">--}}
-        {{--            <div class="card-body">--}}
-        {{--                <div class="widget-content">--}}
-        {{--                    <h5 class="widget-title card-title">SKILLS</h5>--}}
-        {{--                    <p> PHP--}}
-        {{--                    <div class="progress inline-flex">--}}
-        {{--                        <div class="progress-bar bg-success" role="progressbar" style="width: 75%"></div>--}}
-        {{--                    </div>--}}
-        {{--                    </p>--}}
-        {{--                    <hr>--}}
-        {{--                    <p>Laravel framework</p>--}}
-        {{--                    <div class="progress inline-flex">--}}
-        {{--                        <div class="progress-bar bg-success" role="progressbar" style="width: 85%"></div>--}}
-        {{--                    </div>--}}
-        {{--                    <hr>--}}
-        {{--                    <p>HTML</p>--}}
-        {{--                    <div class="progress inline-flex">--}}
-        {{--                        <div class="progress-bar bg-success" role="progressbar" style="width: 90%"></div>--}}
-        {{--                    </div>--}}
-        {{--                    <hr>--}}
-        {{--                    <p>CSS</p>--}}
-        {{--                    <div class="progress inline-flex">--}}
-        {{--                        <div class="progress-bar bg-success" role="progressbar" style="width: 70%"></div>--}}
-        {{--                    </div>--}}
-        {{--                    <hr>--}}
-        {{--                    <p>Javascript</p>--}}
-        {{--                    <div class="progress inline-flex">--}}
-        {{--                        <div class="progress-bar bg-success" role="progressbar" style="width: 50%"></div>--}}
-        {{--                    </div>--}}
-        {{--                    <hr>--}}
-        {{--                </div>--}}
-        {{--            </div>--}}
-        {{--        </div>--}}
         <div class="widget card">
             <div class="card-body">
                 <div class="widget-content">

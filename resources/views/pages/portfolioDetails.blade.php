@@ -2,7 +2,7 @@
 @section("title",$portfolio->title)
 
 @section("css")
-    <link rel="stylesheet" href="{{asset('assets/css/magnific-popup.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/css/magnific-popup.css') }}">
 @endsection
 
 @section("content")
@@ -16,7 +16,7 @@
             <hr>
         @endif
         @if($portfolio->website)
-            Website: {{$portfolio->website}}
+            Website: <a href="{{$portfolio->website}}" target="_blank">{{$portfolio->website}}</a>
             <hr>
         @endif
         @if($portfolio->keywords)

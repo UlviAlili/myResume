@@ -11504,7 +11504,7 @@ main .portfolio-wrapper .portfolio-item {
     align-items: center;
 }
 
-@media (max-width: 1500px) {
+@media (max-width: 1550px) {
     main .portfolio-wrapper .portfolio-item {
         width: calc(50% - 7px);
     }
@@ -11540,14 +11540,15 @@ main .portfolio-wrapper .portfolio-item-details {
 }
 
 main .portfolio-wrapper .portfolio-item-title {
-    font-size: 10px;
+    font-size: 16px;
     font-weight: 700;
     line-height: 1;
-    margin-bottom: 5px;
+    margin-bottom: 3px;
+    margin-top: -10px;
 }
 
 main .portfolio-wrapper .portfolio-item-description {
-    font-size: 10px;
+    font-size: 12px;
     line-height: 1;
     margin-bottom: 0;
 }

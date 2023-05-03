@@ -29,6 +29,7 @@ class PortfolioRequest extends FormRequest
             'keywords'    => 'max:255',
             'description' => 'max:255',
             'status'      => 'max:255',
+            'order'       => 'max:1024',
             'image.*'     => 'image|mimes:png,jpg,jpeg|max:2048',
         ];
     }
