@@ -24,10 +24,10 @@ class PortfolioRequest extends FormRequest
         return [
             'title'       => 'required|min:2|max:255',
             'tags'        => 'required|min:2|max:255',
-            'about'       => 'max:255',
+            'about'       => 'string',
             'website'     => 'max:255',
             'keywords'    => 'max:255',
-            'description' => 'max:255',
+            'description' => 'max:1024',
             'status'      => 'max:255',
             'order'       => 'max:1024',
             'image.*'     => 'image|mimes:png,jpg,jpeg|max:2048',
