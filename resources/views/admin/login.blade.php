@@ -8,11 +8,11 @@
     <!-- plugins:css -->
     <link rel="stylesheet" href="{{asset("assets/vendors/mdi/css/materialdesignicons.min.css")}}">
     <link rel="stylesheet" href="{{asset("assets/vendors/css/vendor.bundle.base.css")}}">
-    <!-- endinject -->
+    <!-- end-inject -->
     <!-- Plugin css for this page -->
     <!-- End plugin css for this page -->
     <!-- inject:css -->
-    <!-- endinject -->
+    <!-- end-inject -->
     <!-- Layout styles -->
     <link rel="stylesheet" href="{{asset("assets/css/style.css")}}">
     <link rel="stylesheet" href="{{asset('assets/sweet-alert/sweetalert2.min.css')}}">
@@ -37,12 +37,12 @@
                                 <label for="password">Password</label>
                                 <input type="password" id="password" name="password" class="form-control p_input">
                             </div>
-                            <div class="form-group d-flex align-items-center justify-content-between">
+                            <div class="form-group d-flex align-items-center">
                                 <div class="form-check">
                                     <label for="remember" class="form-check-label">
                                         <input type="checkbox" id="remember" class="form-check-input"> Remember me </label>
                                 </div>
-                                <a href="#" class="forgot-pass">Forgot password</a>
+                                {{--                                <a href="#" class="forgot-pass">Forgot password</a>--}}
                             </div>
                             <div class="text-center">
                                 <button type="button" id="btnLogin" class="btn btn-primary btn-block enter-btn">Login</button>
@@ -60,7 +60,7 @@
 <!-- container-scroller -->
 <!-- plugins:js -->
 <script src="{{asset("assets/vendors/js/vendor.bundle.base.js")}}"></script>
-<!-- endinject -->
+<!-- end-inject -->
 <!-- Plugin js for this page -->
 <!-- End plugin js for this page -->
 <!-- inject:js -->
@@ -82,7 +82,7 @@
                 text: "Email can't be empty",
             })
         } else if (!emailControl(email)) {
-              Swal.fire({
+            Swal.fire({
                 icon: 'info',
                 title: 'Warning!',
                 text: "Enter a valid Email",
@@ -103,6 +103,6 @@
         return regex.test(email);
     }
 </script>
-<!-- endinject -->
+<!-- end-inject -->
 </body>
 </html>
